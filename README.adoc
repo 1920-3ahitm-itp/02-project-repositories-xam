@@ -1,4 +1,4 @@
-= Pflichtenheft <Projektbezeichnung>
+= Pflichtenheft xAM
 // Metadata
 Meris Besic <besicmeris@gmail.com>
 1.0, dd-mm-yyyy: Some notes
