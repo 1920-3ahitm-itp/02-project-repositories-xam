@@ -1,0 +1,42 @@
+
+= xAM Aktivitätsdiagram
+
+== Als Schüler
+
+[plantuml, png, diagram]
+--
+@startuml
+ (*) --> "Benutzer gibt Matrikelnummer\n und Passwort ein"
+if "Matrikelnummer oder Passwort sind falsch" then
+-->[true] "Benutzer wird zur\n wiedereingabe der\n Daten aufgefordert"
+--> "Benutzer gibt Matrikelnummer\n und Passwort ein"
+
+else
+--> "Daten werden mit\n db abgeglichen"
+--> ===B1===
+--> "Programm erkennt die Klasse \n des Schülers und Schüler\n wird eingeloggt"
+--> ===B2===
+
+===B1=== --> "Zeigt Daten von \nvorhereigen quiz \nergebnisen an "
+--> ===B2===
+--> "Benutzer gibt \n Quiznummer und Passwort \n des Quizes ein"
+endif
+
+if "Quiznummer oder passwort sind falsch" then
+-->[true] "Benutzer wird zur\n wiedereingabe der \nQuiznummer/passwort \naufgefordert"
+--> "Benutzer gibt \n Quiznummer und Passwort \n des Quizes ein"
+
+else
+--> "Quiz wird geladen"
+--> "Benutzer sieht angabe und \n feld zum beantworten der \n Aufgabe"
+endif
+
+
+
+@enduml
+--
+
+
+
+
+
