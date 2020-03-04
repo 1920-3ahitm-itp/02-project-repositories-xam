@@ -29,10 +29,13 @@ if "Quiznummer oder passwort sind falsch" then
 else
 --> "Quiz wird geladen"
 --> "Benutzer sieht angabe und \n feld zum beantworten der \n Aufgabe"
+--> "Beantwortet alle fragen"
+--> "Benutzer sieht übersicht \n aller fragen und \n seine antworten"
 endif
 
-
-
+-->"Antworten werden mit \n antworten aus db \n verglichen"
+-->"Benutzer sieht sein ergebnis"
+--> (*)
 @enduml
 --
 
