@@ -1,0 +1,147 @@
+= Pflichtenheft <Projektbezeichnung>
+// Metadata
+Meris Besic <besicmeris@gmail.com>
+1.0, dd-mm-yyyy: Some notes
+
+// Settings
+:source-highlighter: coderay
+:icons: font
+:sectnums:    // Nummerierung der Überschriften / section numbering
+// Refs:
+:imagesdir: images
+:sourcedir-code: src/main/java/at/htl/jdbcprimer
+:sourcedir-test: src/test/java/at/htl/jdbcprimer
+:toc:
+
+
+Author: {Author} {email}
+
+++++
+<link rel="stylesheet"  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+++++
+
+
+== Beschreibung der Ausgangssituation
+
+An den meisten Schulen, inkl. der HTL Leonding, gibt es Mitarbeitskontrollen/Wiederholungen/Quizzes.
+Speziell auf unsere Schule und unser Projekt bezogen geht es um xAMs
+in Softwareentwicklung.
+
+== Istzustand
+
+Lehrer schreiben eine Angabe, die entweder ausgedruckt wird oder auf ein Klassenlaufwerk
+oder ähnlichem zur Verfügung gestellt wird. Die Schüler müssen diese Angabe
+dann lesen, verstehen(was oft ein Problem ist) und abarbeiten.
+
+Nach der Arbeitszeit müssen die Schüler dann ihr Projekt entweder auf einem
+Netzlaufwerk oder in einem VCS abgeben, dies kann ebenfalls zu Problemen führen.
+Als Lehrer muss man sich dann jedes Projekt einzeln runterladen, in seiner IDE
+öffnen und ausführen. Wenn etwas nicht funktioniert, muss der ganze Code
+kontrolliert werden und festgestellt werden, wo der Fehler liegt und wie
+viele Punkte der Schüler bekommen soll.
+
+=== Beschreibung der Geschäftsprozesse
+
+Mocht da Fitz
+
+== Problemstellung
+
+Bei einer möglichen Klassengröße
+von bis zu 36 Schülern, ist das in 2. beschriebene eine sehr zeitaufwendige und anstrengende
+Aufgabe.
+
+Die in 1. beschriebenen Mitarbeitskontrollen werden von Schülern oft als lernintensiv empfunden
+und Lehrer haben Schwierigkeiten, ihren Schützlingen ausreichende Übungsbeispiele
+und Lernmöglichkeiten zur Verfügung zu stellen. Zu solchen xAMs kommen oft
+ganze Programme die implementiert werden sollen, was oftmals viele Sachen verlangt
+die gar nicht am Stoff sind oder viel wertvolle Zeit einnehmen.
+
+== Aufgabenstellung
+
+TIP: Die Aufgabenstellung beschreibt das Ergebnis (die Leistung) und wird in Funktionale und Nicht-Funktionale anforderungen unterteilt.
+
+=== Funktionale Anforderungen
+
+==== Anwendungsfalldiagramm (Use-Case-Diagram)
+
+TIP: Aufgabe dieses Abschnittes ist es, einen Überblick über die Produktfunktionen zu geben.
+
+==== Use-Case 1
+
+===== Charakterisierende Informationen Use-Case 1
+
+[cols=2]
+|===
+| Übergeordneter elementarer Geschäftsprozess:
+| Prozess-ID: <elementarer Geschäftsprozess (verweist auf Abschnitt „2.1.5 Beschreibung der Geschäftsprozesse“)>
+
+| Ziel des Use Cases:
+| <Ausführliche Beschreibung des Zieles des Use Cases>
+
+| Umgebende Systemgrenze:
+| <System, das betrachtet wird (Systemgrenze im Diagramm des vorigen Abschnittes)>
+
+| Vorbedingung:
+| <Was muss garantiert werden, damit der Use Case durchgeführt werden kann?>
+
+| Nachbedingung bei erfolgreicher Ausführung:
+| <Was muss sichergestellt werden für eine erfolgreiche Ausführung des Use Case>
+
+| Beschreibung:
+a|
+* Erste Aktion
+* Zweite Aktion
+* ...
+
+| Beteiligte Nutzer:
+| <Rollenname>: Beschreibung des Nutzers, der mit dem System interagiert. Nutzer können auch andere Systeme sein.>
+
+| Auslösendes Ereignis:
+| <Handlung oder Zeitpunkt, die Use Case auslöst bzw. zu dem er beginnt>
+|===
+
+===== GUI für den Aufruf des Use-Case 1
+
+==== Use-Case 2
+
+...
+
+TIP: Dieser Abschnitt muß als Template für jeden Use Case aus dem vorigen Abschnitt wiederholt werden.
+
+=== Nicht-funktionale Anforderungen
+
+Typen von Produktcharakteristiken
+
+Typ USE: 		Benutzbarkeitsanforderung
+
+Die in Abschnitt 1 beschriebene Zielgruppe liegt diesen Anforderungen zugrunde. Wie muß die Software beschaffen sein, damit diese Zielgruppe gerne damit arbeitet?
+Beispiel: Die Software soll flexibel für unterschiedliche Arbeitsweisen einsetzbar sein.
+ODER
+Die Software soll dem Erscheinungsbild anderer Produkte des Herstellers
+entsprechen.
+
+Typ EFFIZIENZ: 	Effizienzanforderung
+
+Hier geht es sowohl um Laufzeit- als auch um Speichereffizienz. Was wird unter dem sparsamen Einsatz dieser Ressourcen verstanden?
+Beispiel: Die Berechnung darf nicht länger als 0,25 Sekunden dauern.
+
+Typ PFLEGE:	Wartbarkeits- und Portierbarkeitsanforderung
+
+Welcher Grad an Änderbarkeit wird gefordert? Hier werden, soweit wie möglich, kommende Anpassungen und Erweiterungen vorhergesehen.
+Beispiel: Das Produkt soll später auch in englischer Sprache verfügbar sein.
+
+Typ SICHER:	Sicherheitsanforderung
+
+Zu den Sicherheitsanforderungen gehören die Aspekte Vertraulichkeit, Datenintegrität und Verfügbarkeit. Wie sehr müssen die Daten vor dem Zugriff durch Dritte geschützt werden? Ist es entscheidend, die Korrektheit der erfassten Daten und ihre Konsistenz zu gewährleisten? Dürfen Systemausfälle vorkommen?
+Beispiel: Das System muss gewährleisten, dass Daten nie verändert werden können.
+
+Typ LEGAL:		Gesetzliche Anforderung
+Welche Standards und Gesetze müssen beachtet werden?
+Beispiel: Das Produkt muss die ISO 9000 Norm erfüllen.
+
+== Zielsetzung
+
+TIP: Beschreibung der Leistungswirkung
+
+== Mengengerüst
+TIP: Hier sind die Anzahl der erwarteten Stammdaten sowie der Geschäftsfälle und die daraus resultierenden Zeilen in den Tabellen anzugeben. Diese Angaben sind wichtig, um einerseits die benötigte Speicherform (z.B. XML-Datei oder Datenbank) bzw. die geeignete Datenbank auswählen zu können. Auch können von der Anzahl der Geschäftsfälle besondere Anforderungen an das zu entwickelnde System abgeleitet werden (z.B. eine sehr effizient zu bedienende UI, wenn sehr viele Daten zu bearbeiten sind).
