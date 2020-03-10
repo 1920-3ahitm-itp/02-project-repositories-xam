@@ -41,5 +41,12 @@ endif
 
 
 
+== Als Lehrer
 
-
+[plantuml, png, diagram]
+--
+@startuml
+(*) --> "kmsda"
+--> "fwafsa"
+@enduml
+--
