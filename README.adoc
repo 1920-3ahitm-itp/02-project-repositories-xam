@@ -1,7 +1,5 @@
 = Pflichtenheft xAM
 // Metadata
-Meris Besic <besicmeris@gmail.com>
-1.0, dd-mm-yyyy: Some notes
 
 // Settings
 :source-highlighter: coderay
@@ -17,13 +15,8 @@ Meris Besic <besicmeris@gmail.com>
 Authors:
 
 * Besic Meris
-
 * Fitzinger Jakob
-
 * Höfler Tobias
-
-
-
 
 ++++
 <link rel="stylesheet"  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -127,7 +120,9 @@ Beispiel: Das Produkt muss die ISO 9000 Norm erfüllen.
 
 == Zielsetzung
 
-TIP: Beschreibung der Leistungswirkung
+Unsere Testsoftware soll bis Ende des Sommersemesters 2020 fertiggestellt sein. Nach dieser Zeit
+sollte es für Lehrer und Schüler möglich sein, die Anwendung zu benützen und im Unterricht
+einsetzen zu können.
 
 == Mengengerüst
 TIP: Hier sind die Anzahl der erwarteten Stammdaten sowie der Geschäftsfälle und die daraus resultierenden Zeilen in den Tabellen anzugeben. Diese Angaben sind wichtig, um einerseits die benötigte Speicherform (z.B. XML-Datei oder Datenbank) bzw. die geeignete Datenbank auswählen zu können. Auch können von der Anzahl der Geschäftsfälle besondere Anforderungen an das zu entwickelnde System abgeleitet werden (z.B. eine sehr effizient zu bedienende UI, wenn sehr viele Daten zu bearbeiten sind).
