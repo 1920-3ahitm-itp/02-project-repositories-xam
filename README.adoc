@@ -44,7 +44,23 @@ viele Punkte der Schüler bekommen soll.
 
 === Beschreibung der Geschäftsprozesse
 
-Mocht da Fitz
+[plantuml, png, diagram]
+--
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Lehrer
+actor Schüler
+rectangle xAM {
+Lehrer -- (Quiz erstellen)
+(Quiz teilnehmen) -- Schüler
+Lehrer -- (Live Fortschritt einsehen)
+Lehrer -- (Quiz beenden)
+(Note ansehen) -- Schüler
+Lehrer -- (Ergebnisse anschauen)
+}
+@enduml
+--
 
 == Problemstellung
 
@@ -126,3 +142,4 @@ einsetzen zu können.
 
 == Mengengerüst
 TIP: Hier sind die Anzahl der erwarteten Stammdaten sowie der Geschäftsfälle und die daraus resultierenden Zeilen in den Tabellen anzugeben. Diese Angaben sind wichtig, um einerseits die benötigte Speicherform (z.B. XML-Datei oder Datenbank) bzw. die geeignete Datenbank auswählen zu können. Auch können von der Anzahl der Geschäftsfälle besondere Anforderungen an das zu entwickelnde System abgeleitet werden (z.B. eine sehr effizient zu bedienende UI, wenn sehr viele Daten zu bearbeiten sind).
+
