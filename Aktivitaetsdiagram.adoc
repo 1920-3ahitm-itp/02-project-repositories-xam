@@ -37,16 +37,40 @@ endif
 -->"Benutzer sieht sein ergebnis"
 --> (*)
 @enduml
+
+
 --
 
 
 
 == Als Lehrer
 
-[plantuml, png, diagram]
+[plantuml, jpg, diagram]
 --
 @startuml
-(*) --> "kmsda"
---> "fwafsa"
+(*) --> if ""
+-->[meldet sich an] "Gibt benutzername und passwort ein"
+if "Quiznummer oder passwort sind falsch" then
+-->[true] "Benutzer wird zur\n wiedereingabe der \nQuiznummer/passwort \naufgefordert"
+--> "Gibt benutzername und passwort ein"
+
+else
+--> "Lehrer ist angemeldet"
+--> "Sieht overwiew von allen seinen \n Quizzes"
+
+if "lehrer will quiz erstellen" then
+-->[true] "Gibt benötigte daten ein"
+--> "Lehrer erhält nummer von fertigem quiz \n mit welchem Schüler das quiz ausführen können"
+-->(*)
+else
+--> [false] "Sieht overwiew von allen seinen \n Quizzes"
+
+endif
+endif
+
+else
+-->[erstellt account] "Lehrer gibt daten ein"
+--> "Lehrer ist angemeldet"
+
 @enduml
 --
