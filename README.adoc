@@ -141,7 +141,6 @@ sollte es für Lehrer und Schüler möglich sein, die Anwendung zu benützen und
 einsetzen zu können.
 
 == Mengengerüst
-TIP: Hier sind die Anzahl der erwarteten Stammdaten sowie der Geschäftsfälle und die daraus resultierenden Zeilen in den Tabellen anzugeben. Diese Angaben sind wichtig, um einerseits die benötigte Speicherform (z.B. XML-Datei oder Datenbank) bzw. die geeignete Datenbank auswählen zu können. Auch können von der Anzahl der Geschäftsfälle besondere Anforderungen an das zu entwickelnde System abgeleitet werden (z.B. eine sehr effizient zu bedienende UI, wenn sehr viele Daten zu bearbeiten sind).
 
 Schüler (Name, Matrikelnum, Klasse, Passwort, E-Mail)
 
