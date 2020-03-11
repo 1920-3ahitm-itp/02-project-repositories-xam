@@ -1,7 +1,5 @@
-= Pflichtenheft <Projektbezeichnung>
+= Pflichtenheft xAM
 // Metadata
-Meris Besic <besicmeris@gmail.com>
-1.0, dd-mm-yyyy: Some notes
 
 // Settings
 :source-highlighter: coderay
@@ -14,7 +12,11 @@ Meris Besic <besicmeris@gmail.com>
 :toc:
 
 
-Author: {Author} {email}
+Authors:
+
+* Besic Meris
+* Fitzinger Jakob
+* Höfler Tobias
 
 ++++
 <link rel="stylesheet"  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -42,7 +44,23 @@ viele Punkte der Schüler bekommen soll.
 
 === Beschreibung der Geschäftsprozesse
 
-Mocht da Fitz
+[plantuml, png, diagram]
+--
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Lehrer
+actor Schüler
+rectangle xAM {
+Lehrer -- (Quiz erstellen)
+(Quiz teilnehmen) -- Schüler
+Lehrer -- (Live Fortschritt einsehen)
+Lehrer -- (Quiz beenden)
+(Note ansehen) -- Schüler
+Lehrer -- (Ergebnisse anschauen)
+}
+@enduml
+--
 
 == Problemstellung
 
@@ -58,47 +76,24 @@ die gar nicht am Stoff sind oder viel wertvolle Zeit einnehmen.
 
 == Aufgabenstellung
 
-TIP: Die Aufgabenstellung beschreibt das Ergebnis (die Leistung) und wird in Funktionale und Nicht-Funktionale anforderungen unterteilt.
+Unsere Aufgabe ist es, eine Anwendung zu entwickeln die es Lehrern ermöglicht,
+ihren Schülern kleine Programm abschnitte als Aufgabe zu geben. Diese sollen
+dann automatisiert kontrolliert werden, was den Lehrern viel Zeit beim
+Korrigieren spart.
+
+Schüler sollen ausgewählte Fragen auch im Vorhinein ansehen und genau das üben,
+was zur xAM kommt. Das erleichtert den Schülern das Lernen und den Lehrern
+auch das Kontrollieren dieser Arbeiten.
+
 
 === Funktionale Anforderungen
 
 ==== Anwendungsfalldiagramm (Use-Case-Diagram)
 
-TIP: Aufgabe dieses Abschnittes ist es, einen Überblick über die Produktfunktionen zu geben.
+Fitzinger
 
 ==== Use-Case 1
 
-===== Charakterisierende Informationen Use-Case 1
-
-[cols=2]
-|===
-| Übergeordneter elementarer Geschäftsprozess:
-| Prozess-ID: <elementarer Geschäftsprozess (verweist auf Abschnitt „2.1.5 Beschreibung der Geschäftsprozesse“)>
-
-| Ziel des Use Cases:
-| <Ausführliche Beschreibung des Zieles des Use Cases>
-
-| Umgebende Systemgrenze:
-| <System, das betrachtet wird (Systemgrenze im Diagramm des vorigen Abschnittes)>
-
-| Vorbedingung:
-| <Was muss garantiert werden, damit der Use Case durchgeführt werden kann?>
-
-| Nachbedingung bei erfolgreicher Ausführung:
-| <Was muss sichergestellt werden für eine erfolgreiche Ausführung des Use Case>
-
-| Beschreibung:
-a|
-* Erste Aktion
-* Zweite Aktion
-* ...
-
-| Beteiligte Nutzer:
-| <Rollenname>: Beschreibung des Nutzers, der mit dem System interagiert. Nutzer können auch andere Systeme sein.>
-
-| Auslösendes Ereignis:
-| <Handlung oder Zeitpunkt, die Use Case auslöst bzw. zu dem er beginnt>
-|===
 
 ===== GUI für den Aufruf des Use-Case 1
 
@@ -141,7 +136,15 @@ Beispiel: Das Produkt muss die ISO 9000 Norm erfüllen.
 
 == Zielsetzung
 
-TIP: Beschreibung der Leistungswirkung
+Unsere Testsoftware soll bis Ende des Sommersemesters 2020 fertiggestellt sein. Nach dieser Zeit
+sollte es für Lehrer und Schüler möglich sein, die Anwendung zu benützen und im Unterricht
+einsetzen zu können.
 
 == Mengengerüst
-TIP: Hier sind die Anzahl der erwarteten Stammdaten sowie der Geschäftsfälle und die daraus resultierenden Zeilen in den Tabellen anzugeben. Diese Angaben sind wichtig, um einerseits die benötigte Speicherform (z.B. XML-Datei oder Datenbank) bzw. die geeignete Datenbank auswählen zu können. Auch können von der Anzahl der Geschäftsfälle besondere Anforderungen an das zu entwickelnde System abgeleitet werden (z.B. eine sehr effizient zu bedienende UI, wenn sehr viele Daten zu bearbeiten sind).
+
+Schüler (Name, Matrikelnum, Klasse, Passwort, E-Mail)
+
+Lehrer (LehrerID, Name, Fächer, Passwort, E-Mail)
+
+Quiz (Matrikelnum, LehrerID, QuizID, Fach, Note, Punkte, Status)
+
