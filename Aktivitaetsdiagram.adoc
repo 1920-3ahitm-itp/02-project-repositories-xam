@@ -17,6 +17,7 @@ else
 --> "Programm erkennt die Klasse \n des Schülers und Schüler\n wird eingeloggt"
 --> ===B2===
 
+
 ===B1=== --> "Zeigt Daten von \nvorhereigen quiz \nergebnisen an "
 --> ===B2===
 --> "Benutzer gibt \n Quiznummer und Passwort \n des Quizes ein"
