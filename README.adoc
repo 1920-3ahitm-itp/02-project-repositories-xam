@@ -44,21 +44,78 @@ viele Punkte der Schüler bekommen soll.
 
 === Beschreibung der Geschäftsprozesse
 
-[plantuml, png, diagram]
+=== Als Schüler
+
+[plantuml, student, jpg]
 --
 @startuml
-left to right direction
-skinparam packageStyle rectangle
-actor Lehrer
-actor Schüler
-rectangle xAM {
-Lehrer -- (Quiz erstellen)
-(Quiz teilnehmen) -- Schüler
-Lehrer -- (Live Fortschritt einsehen)
-Lehrer -- (Quiz beenden)
-(Note ansehen) -- Schüler
-Lehrer -- (Ergebnisse anschauen)
-}
+(*) --> "Benutzer gibt Matrikelnummer\n und Passwort ein"
+if "Matrikelnummer oder Passwort sind falsch" then
+-->[true] "Benutzer wird zur\n wiedereingabe der\n Daten aufgefordert"
+--> "Benutzer gibt Matrikelnummer\n und Passwort ein"
+
+else
+--> "Daten werden mit\n db abgeglichen"
+--> ===B1===
+--> "Programm erkennt die Klasse \n des Schülers und Schüler\n wird eingeloggt"
+--> ===B2===
+
+
+===B1=== --> "Zeigt Daten von \nvorhereigen quiz \nergebnisen an "
+--> ===B2===
+--> "Benutzer gibt \n Quiznummer und Passwort \n des Quizes ein"
+endif
+
+if "Quiznummer oder passwort sind falsch" then
+-->[true] "Benutzer wird zur\n wiedereingabe der \nQuiznummer/passwort \naufgefordert"
+--> "Benutzer gibt \n Quiznummer und Passwort \n des Quizes ein"
+
+else
+--> "Quiz wird geladen"
+--> "Benutzer sieht angabe und \n feld zum beantworten der \n Aufgabe"
+--> "Beantwortet alle fragen"
+--> "Benutzer sieht übersicht \n aller fragen und \n seine antworten"
+endif
+
+-->"Antworten werden mit \n antworten aus db \n verglichen"
+-->"Benutzer sieht sein ergebnis"
+--> (*)
+@enduml
+
+
+--
+
+
+
+=== Als Lehrer
+
+[plantuml, teacher, jpg]
+--
+@startuml
+(*) --> if ""
+-->[meldet sich an] "Gibt benutzername und passwort ein"
+if "Quiznummer oder passwort sind falsch" then
+-->[true] "Benutzer wird zur\n wiedereingabe der \nQuiznummer/passwort \naufgefordert"
+--> "Gibt benutzername und passwort ein"
+
+else
+--> "Lehrer ist angemeldet"
+--> "Sieht overwiew von allen seinen \n Quizzes"
+
+if "lehrer will quiz erstellen" then
+-->[true] "Gibt benötigte daten ein"
+--> "Lehrer erhält nummer von fertigem quiz \n mit welchem Schüler das quiz ausführen können"
+-->(*)
+else
+--> [false] "Sieht overwiew von allen seinen \n Quizzes"
+
+endif
+endif
+
+else
+-->[erstellt account] "Lehrer gibt daten ein"
+--> "Lehrer ist angemeldet"
+
 @enduml
 --
 
@@ -90,49 +147,24 @@ auch das Kontrollieren dieser Arbeiten.
 
 ==== Anwendungsfalldiagramm (Use-Case-Diagram)
 
-Fitzinger
+[plantuml, use-case, jpg]
+--
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Lehrer
+actor Schüler
+rectangle xAM {
+Lehrer -- (Quiz erstellen)
+(Quiz teilnehmen) -- Schüler
+Lehrer -- (Live Fortschritt einsehen)
+Lehrer -- (Quiz beenden)
+(Note ansehen) -- Schüler
+Lehrer -- (Ergebnisse anschauen)
+}
+@enduml
+--
 
-==== Use-Case 1
-
-
-===== GUI für den Aufruf des Use-Case 1
-
-==== Use-Case 2
-
-...
-
-TIP: Dieser Abschnitt muß als Template für jeden Use Case aus dem vorigen Abschnitt wiederholt werden.
-
-=== Nicht-funktionale Anforderungen
-
-Typen von Produktcharakteristiken
-
-Typ USE: 		Benutzbarkeitsanforderung
-
-Die in Abschnitt 1 beschriebene Zielgruppe liegt diesen Anforderungen zugrunde. Wie muß die Software beschaffen sein, damit diese Zielgruppe gerne damit arbeitet?
-Beispiel: Die Software soll flexibel für unterschiedliche Arbeitsweisen einsetzbar sein.
-ODER
-Die Software soll dem Erscheinungsbild anderer Produkte des Herstellers
-entsprechen.
-
-Typ EFFIZIENZ: 	Effizienzanforderung
-
-Hier geht es sowohl um Laufzeit- als auch um Speichereffizienz. Was wird unter dem sparsamen Einsatz dieser Ressourcen verstanden?
-Beispiel: Die Berechnung darf nicht länger als 0,25 Sekunden dauern.
-
-Typ PFLEGE:	Wartbarkeits- und Portierbarkeitsanforderung
-
-Welcher Grad an Änderbarkeit wird gefordert? Hier werden, soweit wie möglich, kommende Anpassungen und Erweiterungen vorhergesehen.
-Beispiel: Das Produkt soll später auch in englischer Sprache verfügbar sein.
-
-Typ SICHER:	Sicherheitsanforderung
-
-Zu den Sicherheitsanforderungen gehören die Aspekte Vertraulichkeit, Datenintegrität und Verfügbarkeit. Wie sehr müssen die Daten vor dem Zugriff durch Dritte geschützt werden? Ist es entscheidend, die Korrektheit der erfassten Daten und ihre Konsistenz zu gewährleisten? Dürfen Systemausfälle vorkommen?
-Beispiel: Das System muss gewährleisten, dass Daten nie verändert werden können.
-
-Typ LEGAL:		Gesetzliche Anforderung
-Welche Standards und Gesetze müssen beachtet werden?
-Beispiel: Das Produkt muss die ISO 9000 Norm erfüllen.
 
 == Zielsetzung
 
