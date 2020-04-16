@@ -1,161 +1,156 @@
-= asciidoctor-docker-template
-:imagesdir: images
-:icons: font
+=== Beschreibung der Geschäftsprozesse
 
-== Overview
+[plantuml, png, diagram]
+=== Als Schüler
 
-The documents are generated in a Docker-container.
-Three scripts are available:
+[plantuml, student, jpg]
+--
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Lehrer
+actor Schüler
+rectangle xAM {
+Lehrer -- (Quiz erstellen)
+(Quiz teilnehmen) -- Schüler
+Lehrer -- (Live Fortschritt einsehen)
+Lehrer -- (Quiz beenden)
+(Note ansehen) -- Schüler
+Lehrer -- (Ergebnisse anschauen)
+}
+(*) --> "Benutzer gibt Matrikelnummer\n und Passwort ein"
+if "Matrikelnummer oder Passwort sind falsch" then
+-->[true] "Benutzer wird zur\n wiedereingabe der\n Daten aufgefordert"
+--> "Benutzer gibt Matrikelnummer\n und Passwort ein"
 
-* for html-pages -> build-html-docker.sh
-* for slides -> build-reveal-docker.sh
-* for pds -> build-pdf-docker.sh
+else
+--> "Daten werden mit\n db abgeglichen"
+--> ===B1===
+--> "Programm erkennt die Klasse \n des Schülers und Schüler\n wird eingeloggt"
+--> ===B2===
 
-For each output (revealjs, html5 and pdf) a single folder is created.
 
-IMPORTANT: The html-output is generated into a `docs`-folder, so it is published to gh-pages automatically.
+===B1=== --> "Zeigt Daten von \nvorhereigen quiz \nergebnisen an "
+--> ===B2===
+--> "Benutzer gibt \n Quiznummer und Passwort \n des Quizes ein"
+endif
 
-== gh-pages
+if "Quiznummer oder passwort sind falsch" then
+-->[true] "Benutzer wird zur\n wiedereingabe der \nQuiznummer/passwort \naufgefordert"
+--> "Benutzer gibt \n Quiznummer und Passwort \n des Quizes ein"
 
-This are the gh-pages of the template-project.
+else
+--> "Quiz wird geladen"
+--> "Benutzer sieht angabe und \n feld zum beantworten der \n Aufgabe"
+--> "Beantwortet alle fragen"
+--> "Benutzer sieht übersicht \n aller fragen und \n seine antworten"
+endif
 
-* https://htl-leonding-college.github.io/asciidoctor-docker-template
-* https://htl-leonding-college.github.io/asciidoctor-docker-template/demo.html[]
+-->"Antworten werden mit \n antworten aus db \n verglichen"
+-->"Benutzer sieht sein ergebnis"
+--> (*)
+@enduml
 
-== Steps to your own doc-repo
 
-=== Create your own github-repo
+--
 
-Leave it empty for now.
 
-=== Clone the Template Repo
 
-----
-git clone https://github.com/htl-leonding-college/asciidoctor-docker-template.git
-----
+=== Als Lehrer
 
-=== Change the Remote Origin
+[plantuml, teacher, jpg]
+--
+@startuml
+(*) --> if ""
+-->[meldet sich an] "Gibt benutzername und passwort ein"
+if "Quiznummer oder passwort sind falsch" then
+-->[true] "Benutzer wird zur\n wiedereingabe der \nQuiznummer/passwort \naufgefordert"
+--> "Gibt benutzername und passwort ein"
 
-For your own documentation change the remote origin to
-your own empty git-repo and commit your own docs.
+else
+--> "Lehrer ist angemeldet"
+--> "Sieht overwiew von allen seinen \n Quizzes"
 
-* Rename folder of project (from `asciidoctor-docker-template` to <your-repo-name>)
-* Rename Project
-* Project Structure - Project - Rename Project
-* change git remote
+if "lehrer will quiz erstellen" then
+-->[true] "Gibt benötigte daten ein"
+--> "Lehrer erhält nummer von fertigem quiz \n mit welchem Schüler das quiz ausführen können"
+-->(*)
+else
+--> [false] "Sieht overwiew von allen seinen \n Quizzes"
 
-.Your current remote origin
-----
-git remote -v
-----
+endif
+endif
 
-.Change the remote origin
-----
-git remote set-url origin <new repo link>
-----
+else
+-->[erstellt account] "Lehrer gibt daten ein"
+--> "Lehrer ist angemeldet"
 
-ie
+@enduml
+--
 
-----
-git remote set-url origin https://github.com/htl-leonding/asciidoctor-docker-testdrive.git
-----
+@@ -90,49 +147,24 @@ auch das Kontrollieren dieser Arbeiten.
 
-.Your new remote origin
-----
-git remote -v
-----
+==== Anwendungsfalldiagramm (Use-Case-Diagram)
 
+Fitzinger
 
-In case you change your remote repository to https URL, you will be prompted for your username and password next time you use git fetch, git pull or git push.
+==== Use-Case 1
 
-source: https://www.xenovation.com/blog/source-control-management/git/how-to-change-remote-git-repository[How to change remote git repository]
 
+===== GUI für den Aufruf des Use-Case 1
 
-=== Commit some Files into the New Repo
+==== Use-Case 2
 
-Commit the shell-scripts, .ignore-File, ... into the repo.
-It is not possible to create gh-pages, without content in the repo.
+...
 
-=== Activate the gh-pages for your repo.
+TIP: Dieser Abschnitt muß als Template für jeden Use Case aus dem vorigen Abschnitt wiederholt werden.
 
-https://github.com/<your-git-user>/<your-project>/settings
+=== Nicht-funktionale Anforderungen
 
-image:doc-setup-gh-pages.png[]
+Typen von Produktcharakteristiken
 
+Typ USE: 		Benutzbarkeitsanforderung
 
+Die in Abschnitt 1 beschriebene Zielgruppe liegt diesen Anforderungen zugrunde. Wie muß die Software beschaffen sein, damit diese Zielgruppe gerne damit arbeitet?
+Beispiel: Die Software soll flexibel für unterschiedliche Arbeitsweisen einsetzbar sein.
+ODER
+Die Software soll dem Erscheinungsbild anderer Produkte des Herstellers
+entsprechen.
 
-== Create the Docs
+Typ EFFIZIENZ: 	Effizienzanforderung
 
-=== Create the adoc-Files in the asciidocs-Folder
+Hier geht es sowohl um Laufzeit- als auch um Speichereffizienz. Was wird unter dem sparsamen Einsatz dieser Ressourcen verstanden?
+Beispiel: Die Berechnung darf nicht länger als 0,25 Sekunden dauern.
 
-image:doc-folder.png[]
+Typ PFLEGE:	Wartbarkeits- und Portierbarkeitsanforderung
 
-CAUTION: Don't remove `docinfo.html`. This file is needed for highlighting.
+Welcher Grad an Änderbarkeit wird gefordert? Hier werden, soweit wie möglich, kommende Anpassungen und Erweiterungen vorhergesehen.
+Beispiel: Das Produkt soll später auch in englischer Sprache verfügbar sein.
 
+Typ SICHER:	Sicherheitsanforderung
 
-=== The Header of the adoc-File
+Zu den Sicherheitsanforderungen gehören die Aspekte Vertraulichkeit, Datenintegrität und Verfügbarkeit. Wie sehr müssen die Daten vor dem Zugriff durch Dritte geschützt werden? Ist es entscheidend, die Korrektheit der erfassten Daten und ihre Konsistenz zu gewährleisten? Dürfen Systemausfälle vorkommen?
+Beispiel: Das System muss gewährleisten, dass Daten nie verändert werden können.
+[plantuml, use-case, jpg]
+--
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Lehrer
+actor Schüler
+rectangle xAM {
+Lehrer -- (Quiz erstellen)
+(Quiz teilnehmen) -- Schüler
+Lehrer -- (Live Fortschritt einsehen)
+Lehrer -- (Quiz beenden)
+(Note ansehen) -- Schüler
+Lehrer -- (Ergebnisse anschauen)
+}
+@enduml
+--
 
-----
-= Title
-firstname lastname <email>
-1.0, yyyy-mm-dd
-ifndef::sourcedir[:sourcedir: ../src/main/java]
-ifndef::imagesdir[:imagesdir: images]
-ifndef::backend[:backend: html5]
-:icons: font
-:toc: left
-----
+Typ LEGAL:		Gesetzliche Anforderung
+Welche Standards und Gesetze müssen beachtet werden?
+Beispiel: Das Produkt muss die ISO 9000 Norm erfüllen.
 
-
-=== For images use the image-folder
-
-image:doc-folder-images.png[]
-
-=== Necessary Frameworks
-
-For RevealJS the revealjs-folder will be added automatically
-
-image:doc-folder-revealjs.png[]
-
-
-== Available scripts
-
-IMPORTANT: Before using the scripts, revisit them carefully.
-
-|===
-| script | purpose
-
-| `build-html-docker.sh`
-| creates the html-output
-
-| `build-pdf-docker.sh`
-| creates the pdf-output
-
-| `build-reveal-docker.sh`
-| creates the reveal-output for generating slides
-
-| `download-reveal.sh`
-| downloads the reveal-library from the github-repo and unzips the files.
-This script is used by `build-reveal-docker.sh`.
-
-| `build-all.sh`
-| create the html-, pdf-, and revealjs-output
-
-| `clean-all.sh`
-| deletes all output-files, which are #not# necessary for the gh-pages
-
-| `publish-gh-pages.sh`
-| creates the html-output and publish it on the gh-pages.
-
-|===
-
-
-
-
-=== The Generated Output
-
-gh-pages need the doc-folder for publishing.
-
-image:doc-folder-output.png[]
-
-
+== Zielsetzung
