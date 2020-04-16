@@ -9,7 +9,7 @@
 :imagesdir: images
 :sourcedir-code: src/main/java/at/htl/jdbcprimer
 :sourcedir-test: src/test/java/at/htl/jdbcprimer
-:toc:
+:toc: left
 
 
 Authors:
@@ -46,7 +46,7 @@ viele Punkte der Schüler bekommen soll.
 
 === Als Schüler
 
-[plantuml, student, jpg]
+[plantuml, student, png]
 --
 @startuml
 (*) --> "Benutzer gibt Matrikelnummer\n und Passwort ein"
@@ -89,7 +89,7 @@ endif
 
 === Als Lehrer
 
-[plantuml, teacher, jpg]
+[plantuml, teacher, png]
 --
 @startuml
 (*) --> if ""
@@ -147,7 +147,7 @@ auch das Kontrollieren dieser Arbeiten.
 
 ==== Anwendungsfalldiagramm (Use-Case-Diagram)
 
-[plantuml, use-case, jpg]
+[plantuml, use-case, png]
 --
 @startuml
 left to right direction
