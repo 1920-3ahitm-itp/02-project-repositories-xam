@@ -5,9 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<meta name="author" content="firstname lastname">
 <link rel="icon" type="image/png" href="themes/favicon.png">
-<title>My Project</title>
+<title>Pflichtenheft xAM</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -449,130 +448,171 @@ pre.rouge .hll * {
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>My Project</h1>
-<div class="details">
-<span id="author" class="author">firstname lastname</span><br>
-<span id="revnumber">version 1.0.1,</span>
-<span id="revdate">yyyy-mm-dd</span>
-</div>
+<h1>Pflichtenheft xAM</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_pflichtenheft_was_mache_ich">1. Pflichtenheft "Was mache ich"</a>
+<li><a href="#_beschreibung_der_ausgangssituation">1. Beschreibung der Ausgangssituation</a></li>
+<li><a href="#_istzustand">2. Istzustand</a>
 <ul class="sectlevel2">
-<li><a href="#_ausgangssituation">1.1. Ausgangssituation</a></li>
-<li><a href="#_istzustand">1.2. Istzustand</a></li>
-<li><a href="#_problemstellung">1.3. Problemstellung</a></li>
-<li><a href="#_aufgabenstellung">1.4. Aufgabenstellung</a></li>
-<li><a href="#_ziele">1.5. Ziele</a></li>
-<li><a href="#_mengengerüst">1.6. Mengengerüst</a></li>
-<li><a href="#_rahmenbedingungen">1.7. Rahmenbedingungen</a></li>
+<li><a href="#_beschreibung_der_geschäftsprozesse">2.1. Beschreibung der Geschäftsprozesse</a></li>
+<li><a href="#_als_schüler">2.2. Als Schüler</a></li>
+<li><a href="#_als_lehrer">2.3. Als Lehrer</a></li>
 </ul>
 </li>
-<li><a href="#_entwurf_wie_mache_ich_es">2. Entwurf "Wie mache ich es"</a>
+<li><a href="#_problemstellung">3. Problemstellung</a></li>
+<li><a href="#_aufgabenstellung">4. Aufgabenstellung</a>
 <ul class="sectlevel2">
-<li><a href="#_systemarchitektur">2.1. Systemarchitektur</a></li>
-<li><a href="#">2.2. &#8230;&#8203;</a></li>
+<li><a href="#_funktionale_anforderungen">4.1. Funktionale Anforderungen</a></li>
 </ul>
 </li>
-<li><a href="#_projekthandbuch_organisatorische_rahmenbedingungen">3. Projekthandbuch "Organisatorische Rahmenbedingungen"</a>
-<ul class="sectlevel2">
-<li><a href="#_gantt_diagramm">3.1. GANTT-Diagramm</a></li>
-</ul>
-</li>
+<li><a href="#_zielsetzung">5. Zielsetzung</a></li>
+<li><a href="#_mengengerüst">6. Mengengerüst</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_pflichtenheft_was_mache_ich"><a class="anchor" href="#_pflichtenheft_was_mache_ich"></a>1. Pflichtenheft "Was mache ich"</h2>
+<div id="preamble">
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_ausgangssituation"><a class="anchor" href="#_ausgangssituation"></a>1.1. Ausgangssituation</h3>
 <div class="paragraph">
-<p>Die HTL Leonding ist eine HTL im oö. Zentralraum mit ca. 1000 Schülern und den Fachabteilungen Medientechnik, Informatik, &#8230;&#8203;.</p>
+<p>Authors:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>Besic Meris</p>
+</li>
+<li>
+<p>Fitzinger Jakob</p>
+</li>
+<li>
+<p>Höfler Tobias</p>
+</li>
+</ul>
+</div>
+<link rel="stylesheet"  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_beschreibung_der_ausgangssituation"><a class="anchor" href="#_beschreibung_der_ausgangssituation"></a>1. Beschreibung der Ausgangssituation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An den meisten Schulen, inkl. der HTL Leonding, gibt es Mitarbeitskontrollen/Wiederholungen/Quizzes.
+Speziell auf unsere Schule und unser Projekt bezogen geht es um xAMs
+in Softwareentwicklung.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_istzustand"><a class="anchor" href="#_istzustand"></a>2. Istzustand</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lehrer schreiben eine Angabe, die entweder ausgedruckt wird oder auf ein Klassenlaufwerk
+oder ähnlichem zur Verfügung gestellt wird. Die Schüler müssen diese Angabe
+dann lesen, verstehen(was oft ein Problem ist) und abarbeiten.</p>
+</div>
+<div class="paragraph">
+<p>Nach der Arbeitszeit müssen die Schüler dann ihr Projekt entweder auf einem
+Netzlaufwerk oder in einem VCS abgeben, dies kann ebenfalls zu Problemen führen.
+Als Lehrer muss man sich dann jedes Projekt einzeln runterladen, in seiner IDE
+öffnen und ausführen. Wenn etwas nicht funktioniert, muss der ganze Code
+kontrolliert werden und festgestellt werden, wo der Fehler liegt und wie
+viele Punkte der Schüler bekommen soll.</p>
 </div>
 <div class="sect2">
-<h3 id="_istzustand"><a class="anchor" href="#_istzustand"></a>1.2. Istzustand</h3>
-<div class="listingblock">
-<div class="content">
-<pre>Beschreibung der speziellen Situation zB in der Abteilung</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_problemstellung"><a class="anchor" href="#_problemstellung"></a>1.3. Problemstellung</h3>
+<h3 id="_beschreibung_der_geschäftsprozesse"><a class="anchor" href="#_beschreibung_der_geschäftsprozesse"></a>2.1. Beschreibung der Geschäftsprozesse</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_aufgabenstellung"><a class="anchor" href="#_aufgabenstellung"></a>1.4. Aufgabenstellung</h3>
-<div class="sect3">
-<h4 id="_funktionale_anforderungen"><a class="anchor" href="#_funktionale_anforderungen"></a>1.4.1. Funktionale Anforderungen</h4>
+<h3 id="_als_schüler"><a class="anchor" href="#_als_schüler"></a>2.2. Als Schüler</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/wireframe.png" alt="wireframe" width="376" height="84">
+<img src="images/student.png" alt="student" width="639" height="1327">
 </div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_nichtfunktionale_anforderungen_nfa"><a class="anchor" href="#_nichtfunktionale_anforderungen_nfa"></a>1.4.2. Nichtfunktionale Anforderungen (NFA)</h4>
-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ziele"><a class="anchor" href="#_ziele"></a>1.5. Ziele</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_mengengerüst"><a class="anchor" href="#_mengengerüst"></a>1.6. Mengengerüst</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_rahmenbedingungen"><a class="anchor" href="#_rahmenbedingungen"></a>1.7. Rahmenbedingungen</h3>
-<div class="paragraph">
-<p>zB Vorgaben vom Auftraggeber</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_entwurf_wie_mache_ich_es"><a class="anchor" href="#_entwurf_wie_mache_ich_es"></a>2. Entwurf "Wie mache ich es"</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_systemarchitektur"><a class="anchor" href="#_systemarchitektur"></a>2.1. Systemarchitektur</h3>
-
-</div>
-<div class="sect2">
-<h3 id=""><a class="anchor" href="#"></a>2.2. &#8230;&#8203;</h3>
-
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_projekthandbuch_organisatorische_rahmenbedingungen"><a class="anchor" href="#_projekthandbuch_organisatorische_rahmenbedingungen"></a>3. Projekthandbuch "Organisatorische Rahmenbedingungen"</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_gantt_diagramm"><a class="anchor" href="#_gantt_diagramm"></a>3.1. GANTT-Diagramm</h3>
-<div class="paragraph">
-<p>mit User-Stories (definiert in YouTrack)</p>
-</div>
+<h3 id="_als_lehrer"><a class="anchor" href="#_als_lehrer"></a>2.3. Als Lehrer</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/gantt-protoype.png" alt="gantt protoype" width="353" height="81">
+<img src="images/teacher.png" alt="teacher" width="557" height="824">
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_problemstellung"><a class="anchor" href="#_problemstellung"></a>3. Problemstellung</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bei einer möglichen Klassengröße
+von bis zu 36 Schülern, ist das in 2. beschriebene eine sehr zeitaufwendige und anstrengende
+Aufgabe.</p>
 </div>
 <div class="paragraph">
-<p><a href="demo.html">Demo</a></p>
+<p>Die in 1. beschriebenen Mitarbeitskontrollen werden von Schülern oft als lernintensiv empfunden
+und Lehrer haben Schwierigkeiten, ihren Schützlingen ausreichende Übungsbeispiele
+und Lernmöglichkeiten zur Verfügung zu stellen. Zu solchen xAMs kommen oft
+ganze Programme die implementiert werden sollen, was oftmals viele Sachen verlangt
+die gar nicht am Stoff sind oder viel wertvolle Zeit einnehmen.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aufgabenstellung"><a class="anchor" href="#_aufgabenstellung"></a>4. Aufgabenstellung</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Unsere Aufgabe ist es, eine Anwendung zu entwickeln die es Lehrern ermöglicht,
+ihren Schülern kleine Programm abschnitte als Aufgabe zu geben. Diese sollen
+dann automatisiert kontrolliert werden, was den Lehrern viel Zeit beim
+Korrigieren spart.</p>
+</div>
+<div class="paragraph">
+<p>Schüler sollen ausgewählte Fragen auch im Vorhinein ansehen und genau das üben,
+was zur xAM kommt. Das erleichtert den Schülern das Lernen und den Lehrern
+auch das Kontrollieren dieser Arbeiten.</p>
+</div>
+<div class="sect2">
+<h3 id="_funktionale_anforderungen"><a class="anchor" href="#_funktionale_anforderungen"></a>4.1. Funktionale Anforderungen</h3>
+<div class="sect3">
+<h4 id="_anwendungsfalldiagramm_use_case_diagram"><a class="anchor" href="#_anwendungsfalldiagramm_use_case_diagram"></a>4.1.1. Anwendungsfalldiagramm (Use-Case-Diagram)</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/use-case.png" alt="use case" width="427" height="475">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_zielsetzung"><a class="anchor" href="#_zielsetzung"></a>5. Zielsetzung</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Unsere Testsoftware soll bis Ende des Sommersemesters 2020 fertiggestellt sein. Nach dieser Zeit
+sollte es für Lehrer und Schüler möglich sein, die Anwendung zu benützen und im Unterricht
+einsetzen zu können.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mengengerüst"><a class="anchor" href="#_mengengerüst"></a>6. Mengengerüst</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Schüler (Name, Matrikelnum, Klasse, Passwort, E-Mail)</p>
+</div>
+<div class="paragraph">
+<p>Lehrer (LehrerID, Name, Fächer, Passwort, E-Mail)</p>
+</div>
+<div class="paragraph">
+<p>Quiz (Matrikelnum, LehrerID, QuizID, Fach, Note, Punkte, Status)</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0.1<br>
-Last updated 2020-04-16 18:26:30 UTC
+Last updated 2020-04-16 18:45:51 UTC
 </div>
 </div>
 </body>
