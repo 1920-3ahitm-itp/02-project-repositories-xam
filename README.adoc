@@ -1,23 +1,54 @@
+= Pflichtenheft xAM
+// Metadata
+
+// Settings
+:source-highlighter: coderay
+:icons: font
+:sectnums:    // Nummerierung der Überschriften / section numbering
+// Refs:
+:imagesdir: images
+:sourcedir-code: src/main/java/at/htl/jdbcprimer
+:sourcedir-test: src/test/java/at/htl/jdbcprimer
+:toc:
+
+
+Authors:
+
+* Besic Meris
+* Fitzinger Jakob
+* Höfler Tobias
+
+++++
+<link rel="stylesheet"  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+++++
+
+
+== Beschreibung der Ausgangssituation
+
+An den meisten Schulen, inkl. der HTL Leonding, gibt es Mitarbeitskontrollen/Wiederholungen/Quizzes.
+Speziell auf unsere Schule und unser Projekt bezogen geht es um xAMs
+in Softwareentwicklung.
+
+== Istzustand
+
+Lehrer schreiben eine Angabe, die entweder ausgedruckt wird oder auf ein Klassenlaufwerk
+oder ähnlichem zur Verfügung gestellt wird. Die Schüler müssen diese Angabe
+dann lesen, verstehen(was oft ein Problem ist) und abarbeiten.
+
+Nach der Arbeitszeit müssen die Schüler dann ihr Projekt entweder auf einem
+Netzlaufwerk oder in einem VCS abgeben, dies kann ebenfalls zu Problemen führen.
+Als Lehrer muss man sich dann jedes Projekt einzeln runterladen, in seiner IDE
+öffnen und ausführen. Wenn etwas nicht funktioniert, muss der ganze Code
+kontrolliert werden und festgestellt werden, wo der Fehler liegt und wie
+viele Punkte der Schüler bekommen soll.
+
 === Beschreibung der Geschäftsprozesse
 
-[plantuml, png, diagram]
 === Als Schüler
 
 [plantuml, student, jpg]
 --
 @startuml
-left to right direction
-skinparam packageStyle rectangle
-actor Lehrer
-actor Schüler
-rectangle xAM {
-Lehrer -- (Quiz erstellen)
-(Quiz teilnehmen) -- Schüler
-Lehrer -- (Live Fortschritt einsehen)
-Lehrer -- (Quiz beenden)
-(Note ansehen) -- Schüler
-Lehrer -- (Ergebnisse anschauen)
-}
 (*) --> "Benutzer gibt Matrikelnummer\n und Passwort ein"
 if "Matrikelnummer oder Passwort sind falsch" then
 -->[true] "Benutzer wird zur\n wiedereingabe der\n Daten aufgefordert"
@@ -88,49 +119,34 @@ else
 @enduml
 --
 
-@@ -90,49 +147,24 @@ auch das Kontrollieren dieser Arbeiten.
+== Problemstellung
+
+Bei einer möglichen Klassengröße
+von bis zu 36 Schülern, ist das in 2. beschriebene eine sehr zeitaufwendige und anstrengende
+Aufgabe.
+
+Die in 1. beschriebenen Mitarbeitskontrollen werden von Schülern oft als lernintensiv empfunden
+und Lehrer haben Schwierigkeiten, ihren Schützlingen ausreichende Übungsbeispiele
+und Lernmöglichkeiten zur Verfügung zu stellen. Zu solchen xAMs kommen oft
+ganze Programme die implementiert werden sollen, was oftmals viele Sachen verlangt
+die gar nicht am Stoff sind oder viel wertvolle Zeit einnehmen.
+
+== Aufgabenstellung
+
+Unsere Aufgabe ist es, eine Anwendung zu entwickeln die es Lehrern ermöglicht,
+ihren Schülern kleine Programm abschnitte als Aufgabe zu geben. Diese sollen
+dann automatisiert kontrolliert werden, was den Lehrern viel Zeit beim
+Korrigieren spart.
+
+Schüler sollen ausgewählte Fragen auch im Vorhinein ansehen und genau das üben,
+was zur xAM kommt. Das erleichtert den Schülern das Lernen und den Lehrern
+auch das Kontrollieren dieser Arbeiten.
+
+
+=== Funktionale Anforderungen
 
 ==== Anwendungsfalldiagramm (Use-Case-Diagram)
 
-Fitzinger
-
-==== Use-Case 1
-
-
-===== GUI für den Aufruf des Use-Case 1
-
-==== Use-Case 2
-
-...
-
-TIP: Dieser Abschnitt muß als Template für jeden Use Case aus dem vorigen Abschnitt wiederholt werden.
-
-=== Nicht-funktionale Anforderungen
-
-Typen von Produktcharakteristiken
-
-Typ USE: 		Benutzbarkeitsanforderung
-
-Die in Abschnitt 1 beschriebene Zielgruppe liegt diesen Anforderungen zugrunde. Wie muß die Software beschaffen sein, damit diese Zielgruppe gerne damit arbeitet?
-Beispiel: Die Software soll flexibel für unterschiedliche Arbeitsweisen einsetzbar sein.
-ODER
-Die Software soll dem Erscheinungsbild anderer Produkte des Herstellers
-entsprechen.
-
-Typ EFFIZIENZ: 	Effizienzanforderung
-
-Hier geht es sowohl um Laufzeit- als auch um Speichereffizienz. Was wird unter dem sparsamen Einsatz dieser Ressourcen verstanden?
-Beispiel: Die Berechnung darf nicht länger als 0,25 Sekunden dauern.
-
-Typ PFLEGE:	Wartbarkeits- und Portierbarkeitsanforderung
-
-Welcher Grad an Änderbarkeit wird gefordert? Hier werden, soweit wie möglich, kommende Anpassungen und Erweiterungen vorhergesehen.
-Beispiel: Das Produkt soll später auch in englischer Sprache verfügbar sein.
-
-Typ SICHER:	Sicherheitsanforderung
-
-Zu den Sicherheitsanforderungen gehören die Aspekte Vertraulichkeit, Datenintegrität und Verfügbarkeit. Wie sehr müssen die Daten vor dem Zugriff durch Dritte geschützt werden? Ist es entscheidend, die Korrektheit der erfassten Daten und ihre Konsistenz zu gewährleisten? Dürfen Systemausfälle vorkommen?
-Beispiel: Das System muss gewährleisten, dass Daten nie verändert werden können.
 [plantuml, use-case, jpg]
 --
 @startuml
@@ -149,8 +165,18 @@ Lehrer -- (Ergebnisse anschauen)
 @enduml
 --
 
-Typ LEGAL:		Gesetzliche Anforderung
-Welche Standards und Gesetze müssen beachtet werden?
-Beispiel: Das Produkt muss die ISO 9000 Norm erfüllen.
 
 == Zielsetzung
+
+Unsere Testsoftware soll bis Ende des Sommersemesters 2020 fertiggestellt sein. Nach dieser Zeit
+sollte es für Lehrer und Schüler möglich sein, die Anwendung zu benützen und im Unterricht
+einsetzen zu können.
+
+== Mengengerüst
+
+Schüler (Name, Matrikelnum, Klasse, Passwort, E-Mail)
+
+Lehrer (LehrerID, Name, Fächer, Passwort, E-Mail)
+
+Quiz (Matrikelnum, LehrerID, QuizID, Fach, Note, Punkte, Status)
+
