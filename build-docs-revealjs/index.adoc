@@ -1,0 +1,218 @@
+= xAM
+// Metadata
+
+// Settings
+:source-highlighter: coderay
+:icons: font
+:sectnums:    // Nummerierung der Überschriften / section numbering
+// Refs:
+:imagesdir: images
+:sourcedir-code: src/main/java/at/htl/jdbcprimer
+:sourcedir-test: src/test/java/at/htl/jdbcprimer
+:toc: left
+
+
+Authors:
+
+* Besic Meris
+* Fitzinger Jakob
+* Höfler Tobias
+
+
+
+== Klassendiagramm
+[plantuml, class-diagram, png]
+--
+@startuml
+class User{
+    int: id
+    String: username
+    String: password
+    String: type
+}
+class Teacher{
+    String: name
+    List<String>: subjects
+    List<Quiz>: quizzes
+}
+class Students{
+    String: class
+}
+class Quiz{
+    int: id
+    String: name
+    String: desc
+    List<Question>: questions
+}
+class Question{
+    int: id
+    String: name
+    String: desc
+    String: result
+}
+Teacher "1" -- "*" Quiz
+Quiz "*" -left-- "*" Students
+(Quiz, Students) .. Q_S
+Quiz "1" -- "*" Question
+User <-- Students
+User <---right Teacher
+@enduml
+--
+
+== Beschreibung der Ausgangssituation
+
+An den meisten Schulen, inkl. der HTL Leonding, gibt es Mitarbeitskontrollen/Wiederholungen/Quizzes.
+Speziell auf unsere Schule und unser Projekt bezogen geht es um xAMs
+in Softwareentwicklung.
+
+== Istzustand
+
+Lehrer schreiben eine Angabe, die entweder ausgedruckt wird oder auf ein Klassenlaufwerk
+oder ähnlichem zur Verfügung gestellt wird. Die Schüler müssen diese Angabe
+dann lesen, verstehen(was oft ein Problem ist) und abarbeiten.
+
+Nach der Arbeitszeit müssen die Schüler dann ihr Projekt entweder auf einem
+Netzlaufwerk oder in einem VCS abgeben, dies kann ebenfalls zu Problemen führen.
+Als Lehrer muss man sich dann jedes Projekt einzeln runterladen, in seiner IDE
+öffnen und ausführen. Wenn etwas nicht funktioniert, muss der ganze Code
+kontrolliert werden und festgestellt werden, wo der Fehler liegt und wie
+viele Punkte der Schüler bekommen soll.
+
+=== Beschreibung der Geschäftsprozesse
+
+=== Als Schüler
+
+[plantuml, student, png]
+--
+@startuml
+(*) --> "Benutzer gibt Matrikelnummer\n und Passwort ein"
+if "Matrikelnummer oder Passwort sind falsch" then
+-->[true] "Benutzer wird zur\n wiedereingabe der\n Daten aufgefordert"
+--> "Benutzer gibt Matrikelnummer\n und Passwort ein"
+
+else
+--> "Daten werden mit\n db abgeglichen"
+--> ===B1===
+--> "Programm erkennt die Klasse \n des Schülers und Schüler\n wird eingeloggt"
+--> ===B2===
+
+
+===B1=== --> "Zeigt Daten von \nvorherigen Quizergebnisen an "
+--> ===B2===
+--> "Benutzer gibt \n Quiznummer und Passwort \n des Quizes ein"
+endif
+
+if "Quiznummer oder passwort sind falsch" then
+-->[true] "Benutzer wird zur\n wiedereingabe der \nQuiznummer/passwort \naufgefordert"
+--> "Benutzer gibt \n Quiznummer und Passwort \n des Quizes ein"
+
+else
+--> "Quiz wird geladen"
+--> "Benutzer sieht angabe und \n feld zum beantworten der \n Aufgabe"
+--> "Beantwortet alle fragen"
+--> "Benutzer sieht übersicht \n aller fragen und \n seine antworten"
+endif
+
+-->"Antworten werden mit \n antworten aus db \n verglichen"
+-->"Benutzer sieht sein ergebnis"
+--> (*)
+@enduml
+
+
+--
+
+
+
+=== Als Lehrer
+
+[plantuml, teacher, png]
+--
+@startuml
+(*) --> if ""
+-->[meldet sich an] "Gibt benutzername und passwort ein"
+if "Quiznummer oder passwort sind falsch" then
+-->[true] "Benutzer wird zur\n wiedereingabe der \nQuiznummer/passwort \naufgefordert"
+--> "Gibt benutzername und passwort ein"
+
+else
+--> "Lehrer ist angemeldet"
+--> "Sieht overwiew von allen seinen \n Quizzes"
+
+if "lehrer will quiz erstellen" then
+-->[true] "Gibt benötigte daten ein"
+--> "Lehrer erhält nummer von fertigem quiz \n mit welchem Schüler das quiz ausführen können"
+-->(*)
+else
+--> [false] "Sieht overwiew von allen seinen \n Quizzes"
+
+endif
+endif
+
+else
+-->[erstellt account] "Lehrer gibt daten ein"
+--> "Lehrer ist angemeldet"
+
+@enduml
+--
+
+== Problemstellung
+
+Bei einer möglichen Klassengröße
+von bis zu 36 Schülern, ist das in 2. beschriebene eine sehr zeitaufwendige und anstrengende
+Aufgabe.
+
+Die in 1. beschriebenen Mitarbeitskontrollen werden von Schülern oft als lernintensiv empfunden
+und Lehrer haben Schwierigkeiten, ihren Schützlingen ausreichende Übungsbeispiele
+und Lernmöglichkeiten zur Verfügung zu stellen. Zu solchen xAMs kommen oft
+ganze Programme die implementiert werden sollen, was oftmals viele Sachen verlangt
+die gar nicht am Stoff sind oder viel wertvolle Zeit einnehmen.
+
+== Aufgabenstellung
+
+Unsere Aufgabe ist es, eine Anwendung zu entwickeln die es Lehrern ermöglicht,
+ihren Schülern kleine Programm abschnitte als Aufgabe zu geben. Diese sollen
+dann automatisiert kontrolliert werden, was den Lehrern viel Zeit beim
+Korrigieren spart.
+
+Schüler sollen ausgewählte Fragen auch im Vorhinein ansehen und genau das üben,
+was zur xAM kommt. Das erleichtert den Schülern das Lernen und den Lehrern
+auch das Kontrollieren dieser Arbeiten.
+
+
+=== Funktionale Anforderungen
+
+==== Anwendungsfalldiagramm (Use-Case-Diagram)
+
+[plantuml, use-case, png]
+--
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Lehrer
+actor Schüler
+rectangle xAM {
+Lehrer -- (Quiz erstellen)
+(Quiz teilnehmen) -- Schüler
+Lehrer -- (Live Fortschritt einsehen)
+Lehrer -- (Quiz beenden)
+(Note ansehen) -- Schüler
+Lehrer -- (Ergebnisse anschauen)
+}
+@enduml
+--
+
+
+== Zielsetzung
+
+Unsere Testsoftware soll bis Ende des Sommersemesters 2020 fertiggestellt sein. Nach dieser Zeit
+sollte es für Lehrer und Schüler möglich sein, die Anwendung zu benützen und im Unterricht
+einsetzen zu können.
+
+== Mengengerüst
+
+Schüler (Name, Matrikelnum, Klasse, Passwort, E-Mail)
+
+Lehrer (LehrerID, Name, Fächer, Passwort, E-Mail)
+
+Quiz (Matrikelnum, LehrerID, QuizID, Fach, Note, Punkte, Status)
+
