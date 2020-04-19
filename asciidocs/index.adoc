@@ -18,9 +18,7 @@ Authors:
 * Fitzinger Jakob
 * Höfler Tobias
 
-++++
-<link rel="stylesheet"  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-++++
+
 
 == Klassendiagramm
 [plantuml, class-diagram, png]
@@ -99,7 +97,7 @@ else
 --> ===B2===
 
 
-===B1=== --> "Zeigt Daten von \nvorhereigen quiz \nergebnisen an "
+===B1=== --> "Zeigt Daten von \nvorherigen Quizergebnisen an "
 --> ===B2===
 --> "Benutzer gibt \n Quiznummer und Passwort \n des Quizes ein"
 endif
