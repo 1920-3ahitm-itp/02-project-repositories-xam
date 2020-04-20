@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/02-project-repositories-xam.iml" filepath="$PROJECT_DIR$/.idea/02-project-repositories-xam.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xam.iml" filepath="$PROJECT_DIR$/xam.iml" />
     </modules>
   </component>
 </project>

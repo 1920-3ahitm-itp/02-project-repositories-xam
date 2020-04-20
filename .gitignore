@@ -1,3 +1,2 @@
-build-docs-pdf/
-build-docs-revealjs/
-
+/target/
+/db/
