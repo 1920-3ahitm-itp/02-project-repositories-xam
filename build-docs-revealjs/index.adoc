@@ -87,7 +87,7 @@ viele Punkte der Schüler bekommen soll.
 @startuml
 (*) --> "Benutzer gibt Matrikelnummer\n und Passwort ein"
 if "Matrikelnummer oder Passwort sind falsch" then
--->[true] "Benutzer wird zur\n wiedereingabe der\n Daten aufgefordert"
+-->[true] "Benutzer wird zur\n Wiedereingabe der\n Daten aufgefordert"
 --> "Benutzer gibt Matrikelnummer\n und Passwort ein"
 
 else
@@ -102,19 +102,19 @@ else
 --> "Benutzer gibt \n Quiznummer und Passwort \n des Quizes ein"
 endif
 
-if "Quiznummer oder passwort sind falsch" then
--->[true] "Benutzer wird zur\n wiedereingabe der \nQuiznummer/passwort \naufgefordert"
+if "Quiznummer oder Passwort sind falsch" then
+-->[true] "Benutzer wird zur\n Wiedereingabe der \nQuiznummer/Passwort \naufgefordert"
 --> "Benutzer gibt \n Quiznummer und Passwort \n des Quizes ein"
 
 else
 --> "Quiz wird geladen"
---> "Benutzer sieht angabe und \n feld zum beantworten der \n Aufgabe"
+--> "Benutzer sieht Angabe und \n Feld zum beantworten der \n Aufgabe"
 --> "Beantwortet alle fragen"
---> "Benutzer sieht übersicht \n aller fragen und \n seine antworten"
+--> "Benutzer sieht Übersicht \n aller Fragen und \n seine Antworten"
 endif
 
--->"Antworten werden mit \n antworten aus db \n verglichen"
--->"Benutzer sieht sein ergebnis"
+-->"Antworten werden mit \n Antworten aus db \n verglichen"
+-->"Benutzer sieht sein Ergebnis"
 --> (*)
 @enduml
 
@@ -129,27 +129,27 @@ endif
 --
 @startuml
 (*) --> if ""
--->[meldet sich an] "Gibt benutzername und passwort ein"
-if "Quiznummer oder passwort sind falsch" then
--->[true] "Benutzer wird zur\n wiedereingabe der \nQuiznummer/passwort \naufgefordert"
---> "Gibt benutzername und passwort ein"
+-->[meldet sich an] "Gibt Benutzername und Passwort ein"
+if "Quiznummer oder Passwort sind falsch" then
+-->[true] "Benutzer wird zur\n Wiedereingabe der \nQuiznummer/Passwort \naufgefordert"
+--> "Gibt Benutzername und Passwort ein"
 
 else
 --> "Lehrer ist angemeldet"
---> "Sieht overwiew von allen seinen \n Quizzes"
+--> "Sieht Overwiew von allen seinen \n Quizzes"
 
-if "lehrer will quiz erstellen" then
--->[true] "Gibt benötigte daten ein"
---> "Lehrer erhält nummer von fertigem quiz \n mit welchem Schüler das quiz ausführen können"
+if "Lehrer will Quiz erstellen" then
+-->[true] "Gibt benötigte Daten ein"
+--> "Lehrer erhält Nummer von fertigem Quiz \n mit welchem Schüler das Quiz ausführen können"
 -->(*)
 else
---> [false] "Sieht overwiew von allen seinen \n Quizzes"
+--> [false] "Sieht Overwiew von allen seinen \n Quizzes"
 
 endif
 endif
 
 else
--->[erstellt account] "Lehrer gibt daten ein"
+-->[erstellt account] "Lehrer gibt Daten ein"
 --> "Lehrer ist angemeldet"
 
 @enduml
