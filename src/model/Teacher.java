@@ -1,6 +1,6 @@
 package model;
 
-public class Teacher {
+public class Teacher extends User{
 
     String name;
 
