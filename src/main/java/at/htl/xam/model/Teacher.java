@@ -1,6 +1,6 @@
-package model;
+package at.htl.xam.model;
 
-public class Teacher extends model.User {
+public class Teacher extends Person {
 
     String name;
 

@@ -1,4 +1,4 @@
-package model;
+package at.htl.xam.model;
 
 public class Quiz {
 
