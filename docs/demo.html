@@ -5,8 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="author" content="Thomas W. Stütz">
 <link rel="icon" type="image/png" href="themes/favicon.png">
-<title>xAM</title>
+<title>Asciidoctor-Features</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -448,182 +449,488 @@ pre.rouge .hll * {
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>xAM</h1>
+<h1>Asciidoctor-Features</h1>
+<div class="details">
+<span id="author" class="author">Thomas W. Stütz</span><br>
+<span id="revnumber">version 1.0,</span>
+<span id="revdate">2020-03-01</span>
+</div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_klassendiagramm">1. Klassendiagramm</a></li>
-<li><a href="#_beschreibung_der_ausgangssituation">2. Beschreibung der Ausgangssituation</a></li>
-<li><a href="#_istzustand">3. Istzustand</a>
-<ul class="sectlevel2">
-<li><a href="#_beschreibung_der_geschäftsprozesse">3.1. Beschreibung der Geschäftsprozesse</a></li>
-<li><a href="#_als_schüler">3.2. Als Schüler</a></li>
-<li><a href="#_als_lehrer">3.3. Als Lehrer</a></li>
-</ul>
-</li>
-<li><a href="#_problemstellung">4. Problemstellung</a></li>
-<li><a href="#_aufgabenstellung">5. Aufgabenstellung</a>
-<ul class="sectlevel2">
-<li><a href="#_funktionale_anforderungen">5.1. Funktionale Anforderungen</a></li>
-</ul>
-</li>
-<li><a href="#_zielsetzung">6. Zielsetzung</a></li>
-<li><a href="#_mengengerüst">7. Mengengerüst</a></li>
+<li><a href="#_include_source_code">1. Include Source Code</a></li>
+<li><a href="#_line_numbering_the_source_code">2. Line Numbering the source code</a></li>
+<li><a href="#_highlight_source_code">3. Highlight Source Code</a></li>
+<li><a href="#_line_numbering_highlighting">4. Line-Numbering + Highlighting</a></li>
+<li><a href="#_images">5. Images</a></li>
+<li><a href="#_diagrams">6. Diagrams</a></li>
+<li><a href="#_links">7. Links:</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="_include_source_code"><a class="anchor" href="#_include_source_code"></a>1. Include Source Code</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">Source Code File</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FileRenamer</span> <span class="o">{</span>
+<span class="o">...</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">renameFiles</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">(</span><span class="nc">Stream</span><span class="o">&lt;</span><span class="nc">Path</span><span class="o">&gt;</span> <span class="n">walk</span> <span class="o">=</span> <span class="nc">Files</span><span class="o">.</span><span class="na">walk</span><span class="o">(</span><span class="nc">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="no">DIRECTORY</span> <span class="o">+</span> <span class="nc">File</span><span class="o">.</span><span class="na">separator</span> <span class="o">+</span> <span class="s">"styles"</span><span class="o">)))</span> <span class="o">{</span>
+            <span class="n">walk</span>
+                    <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="nl">Files:</span><span class="o">:</span><span class="n">isRegularFile</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">file</span> <span class="o">-&gt;</span> <span class="o">{</span>
+                        <span class="nc">String</span> <span class="n">fileName</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="na">getFileName</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
+                        <span class="nc">String</span> <span class="n">newFileName</span> <span class="o">=</span>
+                                <span class="n">fileName</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">fileName</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">4</span><span class="o">)</span>
+                                        <span class="o">+</span> <span class="s">".min"</span>
+                                        <span class="o">+</span> <span class="n">fileName</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">fileName</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">4</span><span class="o">);</span>
+<span class="hll">                        <span class="c1">// tag::rename-file[]</span>
+</span>                        <span class="k">try</span> <span class="o">{</span>
+                            <span class="nc">Files</span><span class="o">.</span><span class="na">move</span><span class="o">(</span><span class="n">file</span><span class="o">,</span> <i class="conum" data-value="1"></i><b>(1)</b>
+                                    <span class="n">file</span><span class="o">.</span><span class="na">getParent</span><span class="o">().</span><span class="na">resolve</span><span class="o">(</span><span class="n">newFileName</span><span class="o">));</span> <i class="conum" data-value="2"></i><b>(2)</b>
+                        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                            <span class="nc">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+                        <span class="o">}</span>
+<span class="hll">                        <span class="c1">// end::rename-file[]</span>
+</span>                    <span class="o">});</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">...</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>[source, java]</code><br>
+<code>.Java code from project</code><br>
+<code>----</code><br>
+<code>include::src/main/java/at/htl/asciidoc/FileRenamer.java[tag=rename-file,indent=0]</code><br>
+<code>----</code></p>
+</div>
+<div class="listingblock">
+<div class="title">Java code from project</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="nc">Unresolved</span> <span class="n">directive</span> <span class="n">in</span> <span class="n">demo</span><span class="o">.</span><span class="na">adoc</span> <span class="o">-</span> <span class="nl">include:</span><span class="o">:</span><span class="n">src</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">java</span><span class="o">/</span><span class="n">at</span><span class="o">/</span><span class="n">htl</span><span class="o">/</span><span class="n">asciidoc</span><span class="o">/</span><span class="nc">FileRenamer</span><span class="o">.</span><span class="na">java</span><span class="o">[</span><span class="n">tag</span><span class="o">=</span><span class="n">rename</span><span class="o">-</span><span class="n">file</span><span class="o">,</span><span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="o">]</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Some comments</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Some further comments</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_line_numbering_the_source_code"><a class="anchor" href="#_line_numbering_the_source_code"></a>2. Line Numbering the source code</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre>[source,java,linenums]</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Java code from project</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="nc">Unresolved</span> <span class="n">directive</span> <span class="n">in</span> <span class="n">demo</span><span class="o">.</span><span class="na">adoc</span> <span class="o">-</span> <span class="nl">include:</span><span class="o">:</span><span class="n">src</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">java</span><span class="o">/</span><span class="n">at</span><span class="o">/</span><span class="n">htl</span><span class="o">/</span><span class="n">asciidoc</span><span class="o">/</span><span class="nc">FileRenamer</span><span class="o">.</span><span class="na">java</span><span class="o">[</span><span class="n">tag</span><span class="o">=</span><span class="n">rename</span><span class="o">-</span><span class="n">file</span><span class="o">,</span><span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="o">]</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_highlight_source_code"><a class="anchor" href="#_highlight_source_code"></a>3. Highlight Source Code</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre>[source,java,highlight=4..5]</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Java code from project</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="nc">Unresolved</span> <span class="n">directive</span> <span class="n">in</span> <span class="n">demo</span><span class="o">.</span><span class="na">adoc</span> <span class="o">-</span> <span class="nl">include:</span><span class="o">:</span><span class="n">src</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">java</span><span class="o">/</span><span class="n">at</span><span class="o">/</span><span class="n">htl</span><span class="o">/</span><span class="n">asciidoc</span><span class="o">/</span><span class="nc">FileRenamer</span><span class="o">.</span><span class="na">java</span><span class="o">[</span><span class="n">tag</span><span class="o">=</span><span class="n">rename</span><span class="o">-</span><span class="n">file</span><span class="o">,</span><span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="o">]</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Some comments</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Some further comments</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://asciidoctor.org/docs/user-manual/#highlight-select-lines">Asciidoctor User Manual: Highlight Select Lines</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_line_numbering_highlighting"><a class="anchor" href="#_line_numbering_highlighting"></a>4. Line-Numbering + Highlighting</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre>[source,java,linenums,highlight=4..5]</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Java code from project</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="nc">Unresolved</span> <span class="n">directive</span> <span class="n">in</span> <span class="n">demo</span><span class="o">.</span><span class="na">adoc</span> <span class="o">-</span> <span class="nl">include:</span><span class="o">:</span><span class="n">src</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">java</span><span class="o">/</span><span class="n">at</span><span class="o">/</span><span class="n">htl</span><span class="o">/</span><span class="n">asciidoc</span><span class="o">/</span><span class="nc">FileRenamer</span><span class="o">.</span><span class="na">java</span><span class="o">[</span><span class="n">tag</span><span class="o">=</span><span class="n">rename</span><span class="o">-</span><span class="n">file</span><span class="o">,</span><span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="o">]</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Some comments</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Some further comments</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_images"><a class="anchor" href="#_images"></a>5. Images</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Authors:</p>
+<p>With the backend attribute, it is possible to control the output:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Besic Meris</p>
+<p>In the pdf the image is full-size</p>
 </li>
 <li>
-<p>Fitzinger Jakob</p>
-</li>
-<li>
-<p>Höfler Tobias</p>
+<p>in the slides and html the image is 50% sized</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_klassendiagramm"><a class="anchor" href="#_klassendiagramm"></a>1. Klassendiagramm</h2>
-<div class="sectionbody">
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="images/class-diagram.png" alt="class diagram" width="345" height="435">
+<pre>ifdef::backend-html5,backend-revealjs[image:animal-pet-cute-kitten-45201.jpg[width=50%]]
+ifdef::backend-pdf[image:animal-pet-cute-kitten-45201.jpg[]]</pre>
 </div>
+</div>
+<div class="paragraph">
+<div class="title">Cute kitten (credits to <a href="https://www.pexels.com/@pixabay">pixabay</a>)</div>
+<p><span class="image"><img src="images/animal-pet-cute-kitten-45201.jpg" alt="animal pet cute kitten 45201" width="50%"></span></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_beschreibung_der_ausgangssituation"><a class="anchor" href="#_beschreibung_der_ausgangssituation"></a>2. Beschreibung der Ausgangssituation</h2>
+<h2 id="_diagrams"><a class="anchor" href="#_diagrams"></a>6. Diagrams</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>An den meisten Schulen, inkl. der HTL Leonding, gibt es Mitarbeitskontrollen/Wiederholungen/Quizzes.
-Speziell auf unsere Schule und unser Projekt bezogen geht es um xAMs
-in Softwareentwicklung.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_istzustand"><a class="anchor" href="#_istzustand"></a>3. Istzustand</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Lehrer schreiben eine Angabe, die entweder ausgedruckt wird oder auf ein Klassenlaufwerk
-oder ähnlichem zur Verfügung gestellt wird. Die Schüler müssen diese Angabe
-dann lesen, verstehen(was oft ein Problem ist) und abarbeiten.</p>
-</div>
-<div class="paragraph">
-<p>Nach der Arbeitszeit müssen die Schüler dann ihr Projekt entweder auf einem
-Netzlaufwerk oder in einem VCS abgeben, dies kann ebenfalls zu Problemen führen.
-Als Lehrer muss man sich dann jedes Projekt einzeln runterladen, in seiner IDE
-öffnen und ausführen. Wenn etwas nicht funktioniert, muss der ganze Code
-kontrolliert werden und festgestellt werden, wo der Fehler liegt und wie
-viele Punkte der Schüler bekommen soll.</p>
-</div>
-<div class="sect2">
-<h3 id="_beschreibung_der_geschäftsprozesse"><a class="anchor" href="#_beschreibung_der_geschäftsprozesse"></a>3.1. Beschreibung der Geschäftsprozesse</h3>
+<div class="listingblock">
+<div class="content">
+<pre>[plantuml,bsp,png]
 
+@startuml
+class A
+class B
+A -left-&gt; B
+@enduml</pre>
 </div>
-<div class="sect2">
-<h3 id="_als_schüler"><a class="anchor" href="#_als_schüler"></a>3.2. Als Schüler</h3>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/student.png" alt="student" width="639" height="1327">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_als_lehrer"><a class="anchor" href="#_als_lehrer"></a>3.3. Als Lehrer</h3>
-<div class="imageblock">
-<div class="content">
-<img src="images/teacher.png" alt="teacher" width="558" height="824">
-</div>
+<img src="images/bsp.png" alt="bsp" width="131" height="66">
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_problemstellung"><a class="anchor" href="#_problemstellung"></a>4. Problemstellung</h2>
+<h2 id="_links"><a class="anchor" href="#_links"></a>7. Links:</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Bei einer möglichen Klassengröße
-von bis zu 36 Schülern, ist das in 2. beschriebene eine sehr zeitaufwendige und anstrengende
-Aufgabe.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://mrhaki.blogspot.com/2019/12/awesome-asciidoctor-auto-number-callouts.html">Haki-Blog</a> &#8594; look at the "related posts" - links at the end of the post</p>
+</li>
+<li>
+<p><a href="https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/" class="bare">https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/</a></p>
+</li>
+<li>
+<p><a href="https://asciidoctor.org/docs/asciidoc-writers-guide/" class="bare">https://asciidoctor.org/docs/asciidoc-writers-guide/</a></p>
+</li>
+<li>
+<p><a href="https://powerman.name/doc/asciidoc">Powerman Cheat Sheet</a></p>
+</li>
+<li>
+<p>Froscon 18: Documentation with any editor
+<a href="https://media.ccc.de/v/froscon2018-2192-documentation_with_any_editor">movie</a>,
+<a href="https://programm.froscon.de/2018/system/event_attachments/attachments/000/000/498/original/froscon13-documentationwithanyeditor.pdf">pdf</a></p>
+</li>
+<li>
+<p><a href="https://www.vogella.com/tutorials/AsciiDoc/article.html">Vogella</a></p>
+</li>
+<li>
+<p>Writing documentation with Asciidoctor
+<a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=2ahUKEwj2v4nf4oroAhVkrHEKHbwPCWQQwqsBMAB6BAgKEAQ&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DaAEXZaL9UUE&amp;usg=AOvVaw3wAmZiQkYusBQ8_BNRBLJi">movie</a>,
+<a href="https://www.eclipsecon.org/europe2015/sites/default/files/slides/2015-11-03_Writing_documentation_with_Asciidoctor.pdf">pdf</a></p>
+</li>
+<li>
+<p><a href="https://www.eclipsecon.org/europe2015/sites/default/files/slides/2015-11-03_Writing_documentation_with_Asciidoctor.pdf">Asciidoc Book Editor based on JavaFX 8</a></p>
+</li>
+<li>
+<p><a href="https://plugins.jetbrains.com/plugin/7391-asciidoc">Asciidoctor IntelliJ Plugin Project</a></p>
+</li>
+<li>
+<p>A very nice example of a reveal presentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/bentolor/java9to13">github-repo</a>,
+<a href="https://bentolor.github.io/java9to13/#/">slides</a></p>
+</li>
+<li>
+<p>CyberlandConf 2020 <a href="https://github.com/CodeFX-org/slides/tree/master/java-after-eight">github-repo</a>,
+<a href="https://slides.codefx.org/java-after-eight/2020-03-17-cyberland/#/">slides</a></p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>Die in 1. beschriebenen Mitarbeitskontrollen werden von Schülern oft als lernintensiv empfunden
-und Lehrer haben Schwierigkeiten, ihren Schützlingen ausreichende Übungsbeispiele
-und Lernmöglichkeiten zur Verfügung zu stellen. Zu solchen xAMs kommen oft
-ganze Programme die implementiert werden sollen, was oftmals viele Sachen verlangt
-die gar nicht am Stoff sind oder viel wertvolle Zeit einnehmen.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_aufgabenstellung"><a class="anchor" href="#_aufgabenstellung"></a>5. Aufgabenstellung</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Unsere Aufgabe ist es, eine Anwendung zu entwickeln die es Lehrern ermöglicht,
-ihren Schülern kleine Programm abschnitte als Aufgabe zu geben. Diese sollen
-dann automatisiert kontrolliert werden, was den Lehrern viel Zeit beim
-Korrigieren spart.</p>
-</div>
-<div class="paragraph">
-<p>Schüler sollen ausgewählte Fragen auch im Vorhinein ansehen und genau das üben,
-was zur xAM kommt. Das erleichtert den Schülern das Lernen und den Lehrern
-auch das Kontrollieren dieser Arbeiten.</p>
-</div>
-<div class="sect2">
-<h3 id="_funktionale_anforderungen"><a class="anchor" href="#_funktionale_anforderungen"></a>5.1. Funktionale Anforderungen</h3>
-<div class="sect3">
-<h4 id="_anwendungsfalldiagramm_use_case_diagram"><a class="anchor" href="#_anwendungsfalldiagramm_use_case_diagram"></a>5.1.1. Anwendungsfalldiagramm (Use-Case-Diagram)</h4>
-<div class="imageblock">
-<div class="content">
-<img src="images/use-case.png" alt="use case" width="427" height="475">
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_zielsetzung"><a class="anchor" href="#_zielsetzung"></a>6. Zielsetzung</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Unsere Testsoftware soll bis Ende des Sommersemesters 2020 fertiggestellt sein. Nach dieser Zeit
-sollte es für Lehrer und Schüler möglich sein, die Anwendung zu benützen und im Unterricht
-einsetzen zu können.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_mengengerüst"><a class="anchor" href="#_mengengerüst"></a>7. Mengengerüst</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Schüler (Name, Matrikelnum, Klasse, Passwort, E-Mail)</p>
-</div>
-<div class="paragraph">
-<p>Lehrer (LehrerID, Name, Fächer, Passwort, E-Mail)</p>
-</div>
-<div class="paragraph">
-<p>Quiz (Matrikelnum, LehrerID, QuizID, Fach, Note, Punkte, Status)</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-20 14:01:28 UTC
+Version 1.0<br>
+Last updated 2020-04-16 18:26:30 UTC
 </div>
 </div>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
 </body>
 </html>
