@@ -1,31 +1,35 @@
 CREATE TABLE Teacher(
     name varchar(50) NOT NULL,
-    id int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+    teacher_id int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
     username varchar(50) NOT NULL,
     password varchar(32) NOT NULL,
-    CONSTRAINT PK_Teacher PRIMARY KEY (id)
+    CONSTRAINT PK_Teacher PRIMARY KEY (teacher_id)
 );
 
 CREATE TABLE Student(
     class varchar(6) NOT NULL,
     name varchar(50) NOT NULL,
-    id int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+    student_id int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
     username varchar(50) NOT NULL,
     password varchar(32) NOT NULL,
-    CONSTRAINT PK_Student PRIMARY KEY (id)
+    CONSTRAINT PK_Student PRIMARY KEY (student_id)
 );
 
 CREATE TABLE Quiz(
-    id int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+    quiz_id int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
     name varchar(50) NOT NULL,
     description varchar(1000),
-    CONSTRAINT PK_Quiz PRIMARY KEY (id)
+    teacher_id int not null,
+    CONSTRAINT PK_Quiz PRIMARY KEY (quiz_id),
+    CONSTRAINT FK_Quiz FOREIGN KEY (teacher_id) REFERENCES Teacher(teacher_id)
 );
 
 CREATE TABLE Question(
-    id int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+    question_id int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
     headline varchar(100),
     description varchar(1000),
     result varchar(100) NOT NULL,
-    CONSTRAINT PK_Question PRIMARY KEY (id)
+    quiz_id int not null ,
+    CONSTRAINT PK_Question PRIMARY KEY (question_id),
+    CONSTRAINT FK_Question FOREIGN KEY (quiz_id) references Quiz(quiz_id)
 );

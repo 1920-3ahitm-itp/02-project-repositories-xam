@@ -26,11 +26,17 @@ Authors:
 @startuml
 
 class Teacher{
+    int: id
     String: name
+    String: username
+    String: password
     List<String>: subjects
 
 }
 class Students{
+    int: id
+    String: username
+    String: password
     String: class
 }
 class Quiz{
