@@ -33,3 +33,5 @@ CREATE TABLE Question(
     CONSTRAINT PK_Question PRIMARY KEY (question_id),
     CONSTRAINT FK_Question FOREIGN KEY (quiz_id) references Quiz(quiz_id)
 );
+
+-- how to association table (Q_S)
