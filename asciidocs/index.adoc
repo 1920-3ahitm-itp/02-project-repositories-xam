@@ -24,16 +24,11 @@ Authors:
 [plantuml, class-diagram, png]
 --
 @startuml
-class User{
-    int: id
-    String: username
-    String: password
-    String: type
-}
+
 class Teacher{
     String: name
     List<String>: subjects
-    List<Quiz>: quizzes
+
 }
 class Students{
     String: class
@@ -42,20 +37,21 @@ class Quiz{
     int: id
     String: name
     String: desc
-    List<Question>: questions
+    Teacher: teacher
+
 }
 class Question{
     int: id
     String: name
     String: desc
     String: result
+    Quiz: quiz
 }
 Teacher "1" -- "*" Quiz
 Quiz "*" -left-- "*" Students
 (Quiz, Students) .. Q_S
 Quiz "1" -- "*" Question
-User <-- Students
-User <---right Teacher
+
 @enduml
 --
 
