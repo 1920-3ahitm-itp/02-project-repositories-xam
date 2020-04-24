@@ -1,6 +1,6 @@
-package model;
+package at.htl.xam.model;
 
-public class User {
+public class Person {
 
     int id;
     String username;
