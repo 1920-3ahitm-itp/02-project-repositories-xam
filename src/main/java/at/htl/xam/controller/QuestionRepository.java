@@ -133,7 +133,9 @@ public class QuestionRepository {
             String sql = "UPDATE Question SET headline = ?, description = ?, result = ? WHERE CATEGORY_ID = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, question.getName());
-            pstmt.setDouble(2, question.getPrice());
+            pstmt.setString(2, question.getDesc());
+            pstmt.setString(3, question.getResult());
+            pstmt.setInt(4, question.getId());
 
         } catch (SQLException e) {
             e.printStackTrace();
