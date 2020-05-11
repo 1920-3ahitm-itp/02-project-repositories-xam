@@ -7,8 +7,6 @@ module xam {
     requires org.apache.derby.tools;
     requires org.mybatis;
 
-    opens at.htl.xam.view to javafx.fxml;
-    exports at.htl.xam.view;
-    exports at.htl.xam.controller;
-    exports at.htl.xam.model;
+    opens at.htl.xam to javafx.fxml;
+    exports at.htl.xam;
 }

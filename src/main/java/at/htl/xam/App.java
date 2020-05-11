@@ -1,4 +1,4 @@
-package at.htl.xam.view;
+package at.htl.xam;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +11,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Smart Fridge");
+        primaryStage.setTitle("XAM");
         primaryStage.setScene(new Scene(root, 700, 400));
         primaryStage.show();
     }
