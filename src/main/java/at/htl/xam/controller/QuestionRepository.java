@@ -70,7 +70,7 @@ public class QuestionRepository {
         return false;
     }
 
-    public void addProduct(Question question) {
+    public void addQuestion(Question question) {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Insert question in database
@@ -111,7 +111,7 @@ public class QuestionRepository {
         return questions;
     }
 
-    public void removeProduct(Question question) {
+    public void removeQuestion(Question question) {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Delete question from database
@@ -126,7 +126,7 @@ public class QuestionRepository {
         }
     }
 
-    public void saveProduct(Question question) {
+    public void saveQuestion(Question question) {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Update question in database
