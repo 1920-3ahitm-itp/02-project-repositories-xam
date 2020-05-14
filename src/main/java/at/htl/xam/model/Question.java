@@ -3,16 +3,22 @@ package at.htl.xam.model;
 public class Question {
 
     int id;
-    String name;
+    String headline;
     String desc;
     String result;
 
     public Question() {
     }
 
-    public Question(int id, String name, String desc, String result) {
+    public Question(int id, String headline, String desc, String result) {
         this.id = id;
-        this.name = name;
+        this.headline = headline;
+        this.desc = desc;
+        this.result = result;
+    }
+
+    public Question(String headline, String desc, String result) {
+        this.headline = headline;
         this.desc = desc;
         this.result = result;
     }
@@ -25,12 +31,12 @@ public class Question {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getHeadline() {
+        return headline;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setHeadline(String headline) {
+        this.headline = headline;
     }
 
     public String getDesc() {

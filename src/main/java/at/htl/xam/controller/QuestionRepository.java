@@ -28,7 +28,7 @@ public class QuestionRepository {
                     "result varchar(100) NOT NULL," +
                     "quiz_id int not null," +
                     "CONSTRAINT PK_Question PRIMARY KEY (question_id)" +
-                    //"CONSTRAINT FK_Question FOREIGN KEY (quiz_id) references Quiz(quiz_id)" +
+                    "CONSTRAINT FK_Question FOREIGN KEY (quiz_id) references Quiz(quiz_id)" +
                     ")";
 
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -76,7 +76,7 @@ public class QuestionRepository {
             // TODO: Insert question in database
             String sql = "INSERT INTO Question(headline, description, result) VALUES(?, ?, ?)";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, question.getName());
+            pstmt.setString(1, question.getHeadline());
             pstmt.setString(2, question.getDesc());
             pstmt.setInt(3, question.getId());
 
@@ -99,9 +99,9 @@ public class QuestionRepository {
             while(result.next()){
                 int id = result.getInt("question_id");
                 String headline = result.getString("headline");
-                String desription = result.getString("description");
+                String description = result.getString("description");
                 String qResult = result.getString("result");
-                questions.add(new Question(id, headline, desription, qResult));
+                questions.add(new Question(id, headline, description, qResult));
             }
 
         } catch (SQLException e) {
@@ -111,13 +111,13 @@ public class QuestionRepository {
         return questions;
     }
 
-    public void removeQuestion(Question question) {
+    public void removeQuestion(int id) {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Delete question from database
             String sql = "DELETE FROM Question WHERE question_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setInt(1, question.getId());
+            pstmt.setInt(1, id);
 
             pstmt.execute();
 
@@ -130,9 +130,9 @@ public class QuestionRepository {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Update question in database
-            String sql = "UPDATE Question SET headline = ?, description = ?, result = ? WHERE CATEGORY_ID = ?";
+            String sql = "UPDATE Question SET headline = ?, description = ?, result = ? WHERE question_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, question.getName());
+            pstmt.setString(1, question.getHeadline());
             pstmt.setString(2, question.getDesc());
             pstmt.setString(3, question.getResult());
             pstmt.setInt(4, question.getId());
@@ -140,5 +140,13 @@ public class QuestionRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Question> findAll() {
+        return null;
+    }
+
+    public Question findById(int id) {
+        return null;
     }
 }
