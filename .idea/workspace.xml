@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0556fb5-6b52-4b21-b25d-c212ab96a139" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/htl/xam/controller/TeacherRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/htl/xam/model/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/htl/xam/model/Teacher.java" afterDir="false" />
-    </list>
+    <list default="true" id="e0556fb5-6b52-4b21-b25d-c212ab96a139" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +48,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589483484175</updated>
-      <workItem from="1589483485396" duration="10354000" />
+      <workItem from="1589483485396" duration="10805000" />
     </task>
     <task id="LOCAL-00001" summary="Repariert">
       <created>1589485379996</created>
@@ -61,15 +57,42 @@
       <option name="project" value="LOCAL" />
       <updated>1589485379996</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Teacher repository added and Teacher classes getter, setter and constructor added">
+      <created>1589493937711</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1589493937711</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Teacher repository added and Teacher classes getter, setter and constructor added">
+      <created>1589494038601</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1589494038601</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Repariert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Repariert" />
+    <MESSAGE value="Teacher repository added and Teacher classes getter setter and constructor added" />
+    <MESSAGE value="Teacher repository added and Teacher classes getter, setter and constructor added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Teacher repository added and Teacher classes getter, setter and constructor added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="524" y="131" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589486260159">
@@ -80,10 +103,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589488246605" />
-    <state x="584" y="88" key="CommitChangelistDialog2" timestamp="1589485377629">
+    <state x="666" y="126" key="CommitChangelistDialog2" timestamp="1589494036575">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="584" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589485377629" />
+    <state x="666" y="126" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589494036575" />
     <state x="758" y="204" key="FileChooserDialogImpl" timestamp="1589485015967">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -92,13 +115,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="490" y="174" key="Maven.ArtifactSearchDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589484719152" />
+    <state x="848" y="387" width="642" height="265" key="MultipleFileMergeDialog" timestamp="1589493965177">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="848" y="387" width="642" height="265" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589493965177" />
     <state x="440" y="94" width="1077" height="711" key="SettingsEditor" timestamp="1589485022105">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" width="1077" height="711" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589485022105" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1589485381774">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1589493942134">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589485381774" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589493942134" />
   </component>
 </project>
