@@ -10,34 +10,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionRepository {
-    private QuestionRepository questionRepository = new QuestionRepository();
+    //private QuestionRepository questionRepository = new QuestionRepository();
 
-    public QuestionRepository() {
-        if (!tableExists()) {
-            createTable();
-        }
-    }
+//    public QuestionRepository() {
+//        if (!tableExists()) {
+//            createTable();
+//        }
+//    }
 
-    public void createTable() {
-        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
-
-            String sql = "CREATE TABLE Question(" +
-                    "question_id int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
-                    "headline varchar(100)," +
-                    "description varchar(1000)," +
-                    "result varchar(100) NOT NULL," +
-                    "quiz_id int not null," +
-                    "CONSTRAINT PK_Question PRIMARY KEY (question_id)" +
-                    "CONSTRAINT FK_Question FOREIGN KEY (quiz_id) references Quiz(quiz_id)" +
-                    ")";
-
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.execute();
-            System.out.println("Created table Question.");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void createTable() {
+//        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
+//
+//            String sql = "CREATE TABLE Question(" +
+//                    "question_id int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
+//                    "headline varchar(100)," +
+//                    "description varchar(1000)," +
+//                    "result varchar(100) NOT NULL," +
+//                    "quiz_id int not null," +
+//                    "CONSTRAINT PK_Question PRIMARY KEY (question_id)" +
+//                    "CONSTRAINT FK_Question FOREIGN KEY (quiz_id) references Quiz(quiz_id)" +
+//                    ")";
+//
+//            PreparedStatement statement = connection.prepareStatement(sql);
+//            statement.execute();
+//            System.out.println("Created table Question.");
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public void dropTable() {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
@@ -74,19 +74,20 @@ public class QuestionRepository {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Insert question in database
-            String sql = "INSERT INTO Question(headline, description, result) VALUES(?, ?, ?)";
+            String sql = "INSERT INTO Question(headline, description, result, QUIZ_ID) VALUES(?, ?, ?, ?)";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, question.getHeadline());
             pstmt.setString(2, question.getDesc());
-            pstmt.setLong(3, question.getId());
+            pstmt.setString(3, question.getResult());
+            pstmt.setLong(4, 1);
 
+            pstmt.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public List<Question> getAllQuestions() {
-        List<Question> categories = questionRepository.getAllQuestions();
         List<Question> questions = new ArrayList<>();
 
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
@@ -142,11 +143,25 @@ public class QuestionRepository {
         }
     }
 
-    public List<Question> findAll() {
-        return null;
-    }
+    public Question findById(long id) {
+        try (Connection conn = DatasourceFactory.getDataSource().getConnection()) {
+            String sql = "SELECT * FROM Question WHERE question_id = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setLong(1, id);
 
-    public Question findById(int id) {
+            try (ResultSet rs = preparedStatement.executeQuery()) {
+                Question q = new Question();
+                q.setId(id);
+                rs.next();
+                String headline = rs.getString("headline");
+                q.setHeadline(headline);
+                return q;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+
         return null;
     }
 }

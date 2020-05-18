@@ -34,12 +34,10 @@ class QuestionRepositoryTest {
         Question question = new Question("QuestionHeadline", "QuestionDescription", "QuestionResult");
 
         Table table = new Table(DatasourceFactory.getDataSource(), "Question");
-
-        int rowsBefore = table.getRowsList().size();
         questionRepository.addQuestion(question);
-        int rowsAfter = table.getRowsList().size();
 
-        org.assertj.core.api.Assertions.assertThat(rowsBefore).isEqualTo(rowsAfter);
+        Assertions.assertThat(table).row(table.getRowsList().size() - 1)
+                .value("headline").isEqualTo("QuestionHeadline");
     }
 
     @Test
@@ -64,7 +62,7 @@ class QuestionRepositoryTest {
         QuestionRepository questionRepository = new QuestionRepository();
         Table table = new Table(DatasourceFactory.getDataSource(), "Question");
 
-        int findAllRows = questionRepository.findAll().size();
+        int findAllRows = questionRepository.getAllQuestions().size();
         int tableRows = table.getRowsList().size();
 
         org.assertj.core.api.Assertions.assertThat(findAllRows).isEqualTo(tableRows);
