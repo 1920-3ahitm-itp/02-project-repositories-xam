@@ -2,7 +2,7 @@ package at.htl.xam.model;
 
 public class Question {
 
-    int id;
+    Long id;
     String headline;
     String desc;
     String result;
@@ -10,7 +10,7 @@ public class Question {
     public Question() {
     }
 
-    public Question(int id, String headline, String desc, String result) {
+    public Question(Long id, String headline, String desc, String result) {
         this.id = id;
         this.headline = headline;
         this.desc = desc;
@@ -23,11 +23,11 @@ public class Question {
         this.result = result;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
