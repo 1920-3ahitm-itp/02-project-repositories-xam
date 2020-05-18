@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0556fb5-6b52-4b21-b25d-c212ab96a139" name="Default Changelist" comment="" />
+    <list default="true" id="e0556fb5-6b52-4b21-b25d-c212ab96a139" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/htl/xam/controller/StudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/htl/xam/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/htl/xam/model/Student.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -16,6 +23,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1buYXUBzOZMXINnDnKJ3F1NOhp9" />
   <component name="ProjectLevelVcsManager">
@@ -49,6 +59,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589483484175</updated>
       <workItem from="1589483485396" duration="10805000" />
+      <workItem from="1589796320548" duration="461000" />
     </task>
     <task id="LOCAL-00001" summary="Repariert">
       <created>1589485379996</created>
@@ -87,6 +98,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Repariert" />
@@ -95,13 +107,15 @@
     <option name="LAST_COMMIT_MESSAGE" value="Teacher repository added and Teacher classes getter, setter and constructor added" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="524" y="131" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589486260159">
+    <state x="724" y="236" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589796669551">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="724" y="236" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.-111.1920.1160@0.0.1920.1040" timestamp="1589796669551" />
     <state x="524" y="131" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589486260159" />
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1589488246605">
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1589796764749">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.-111.1920.1160@0.0.1920.1040" timestamp="1589796764749" />
     <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589488246605" />
     <state x="666" y="126" key="CommitChangelistDialog2" timestamp="1589494036575">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -111,6 +125,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="758" y="204" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589485015967" />
+    <state width="196" height="539" key="HiddenNamespacesPopup" timestamp="1589796612721">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="196" height="539" key="HiddenNamespacesPopup/0.0.1920.1040/1920.-111.1920.1160@0.0.1920.1040" timestamp="1589796612721" />
     <state x="490" y="174" key="Maven.ArtifactSearchDialog" timestamp="1589484719152">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
