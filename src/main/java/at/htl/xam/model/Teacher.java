@@ -1,8 +1,8 @@
 package at.htl.xam.model;
 
-public class Teacher extends Person {
+public class Teacher{
 
-    private int id;
+    private Long id;
     private String name;
     private String username;
     private String password;
@@ -10,14 +10,14 @@ public class Teacher extends Person {
     public Teacher() {
     }
 
-    public Teacher(int id, String name, String username, String password) {
+    public Teacher(Long id, String name, String username, String password) {
         this.id = id;
         this.name = name;
         this.username = username;
         this.password = password;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 

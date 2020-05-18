@@ -16,7 +16,7 @@ class QuestionRepositoryTest {
     void save() {
         QuestionRepository questionRepository = new QuestionRepository();
 
-        Question question = new Question(1,"QuestionHeadline", "QuestionDescription", "QuestionResult");
+        Question question = new Question(1L,"QuestionHeadline", "QuestionDescription", "QuestionResult");
         questionRepository.saveQuestion(question);
 
         Table table = new Table(DatasourceFactory.getDataSource(), "Question");
@@ -46,9 +46,9 @@ class QuestionRepositoryTest {
     void delete() {
         QuestionRepository questionRepository = new QuestionRepository();
 
-        questionRepository.addQuestion(new Question(99, "QuestionHeadline", "QuestionDescription", "QuestionResult"));
+        questionRepository.addQuestion(new Question(99L, "QuestionHeadline", "QuestionDescription", "QuestionResult"));
 
-        Question question = new Question(99, "QuestionHeadline", "QuestionDescription", "QuestionResult");
+        Question question = new Question(99L, "QuestionHeadline", "QuestionDescription", "QuestionResult");
         questionRepository.addQuestion(question);
         Table table = new Table(DatasourceFactory.getDataSource(), "Question");
 

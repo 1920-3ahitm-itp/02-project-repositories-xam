@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0556fb5-6b52-4b21-b25d-c212ab96a139" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/htl/xam/controller/StudentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/htl/xam/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/htl/xam/model/Student.java" afterDir="false" />
+    <list default="true" id="e0556fb5-6b52-4b21-b25d-c212ab96a139" name="Default Changelist" comment="modified Question.java">
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/htl/xam/model/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/htl/xam/model/Quiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/at/htl/xam/controller/QuestionRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/at/htl/xam/controller/QuestionRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CodeStyleSettingsInfer">
-    <option name="done" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -23,9 +37,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1buYXUBzOZMXINnDnKJ3F1NOhp9" />
   <component name="ProjectLevelVcsManager">
@@ -43,10 +54,46 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.build.android" />
+  </component>
+  <component name="RunManager" selected="Application.SqlRunner">
+    <configuration name="SqlRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="at.htl.xam.database.SqlRunner" />
+      <module name="xam" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.htl.xam.database.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuestionRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xam" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.htl.xam.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.htl.xam.controller" />
+      <option name="MAIN_CLASS_NAME" value="at.htl.xam.controller.QuestionRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SqlRunner" />
+        <item itemvalue="JUnit.QuestionRepositoryTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -59,7 +106,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589483484175</updated>
       <workItem from="1589483485396" duration="10805000" />
-      <workItem from="1589796320548" duration="461000" />
+      <workItem from="1589796057015" duration="630000" />
     </task>
     <task id="LOCAL-00001" summary="Repariert">
       <created>1589485379996</created>
@@ -82,7 +129,28 @@
       <option name="project" value="LOCAL" />
       <updated>1589494038601</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added drop-table.sql and bugfixes">
+      <created>1589796494170</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1589796494170</updated>
+    </task>
+    <task id="LOCAL-00005" summary="modified Person.java">
+      <created>1589796591506</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1589796591506</updated>
+    </task>
+    <task id="LOCAL-00006" summary="modified Question.java">
+      <created>1589796630029</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1589796630029</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,19 +172,20 @@
     <MESSAGE value="Repariert" />
     <MESSAGE value="Teacher repository added and Teacher classes getter setter and constructor added" />
     <MESSAGE value="Teacher repository added and Teacher classes getter, setter and constructor added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Teacher repository added and Teacher classes getter, setter and constructor added" />
+    <MESSAGE value="added drop-table.sql and bugfixes" />
+    <MESSAGE value="modified Person.java" />
+    <MESSAGE value="modified Question.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified Question.java" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="724" y="236" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589796669551">
+    <state x="524" y="131" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589486260159">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="724" y="236" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.-111.1920.1160@0.0.1920.1040" timestamp="1589796669551" />
     <state x="524" y="131" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589486260159" />
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1589796764749">
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1589796685362">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.-111.1920.1160@0.0.1920.1040" timestamp="1589796764749" />
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589488246605" />
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589796685362" />
     <state x="666" y="126" key="CommitChangelistDialog2" timestamp="1589494036575">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -125,10 +194,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="758" y="204" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589485015967" />
-    <state width="196" height="539" key="HiddenNamespacesPopup" timestamp="1589796612721">
+    <state width="1877" height="274" key="GridCell.Tab.0.bottom" timestamp="1589796471846">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="196" height="539" key="HiddenNamespacesPopup/0.0.1920.1040/1920.-111.1920.1160@0.0.1920.1040" timestamp="1589796612721" />
+    <state width="1877" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589796471846" />
+    <state width="1877" height="274" key="GridCell.Tab.0.center" timestamp="1589796471846">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589796471846" />
+    <state width="1877" height="274" key="GridCell.Tab.0.left" timestamp="1589796471846">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589796471846" />
+    <state width="1877" height="274" key="GridCell.Tab.0.right" timestamp="1589796471846">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589796471846" />
     <state x="490" y="174" key="Maven.ArtifactSearchDialog" timestamp="1589484719152">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -137,13 +218,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="848" y="387" width="642" height="265" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589493965177" />
-    <state x="440" y="94" width="1077" height="711" key="SettingsEditor" timestamp="1589485022105">
+    <state x="440" y="94" width="1077" height="711" key="SettingsEditor" timestamp="1589796126366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" width="1077" height="711" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589485022105" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1589493942134">
+    <state x="440" y="94" width="1077" height="711" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589796126366" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1589796592523">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589493942134" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589796592523" />
   </component>
 </project>
