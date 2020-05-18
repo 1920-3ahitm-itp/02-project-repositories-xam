@@ -2,7 +2,7 @@ package at.htl.xam.model;
 
 public class Student{
 
-    long id;
+    Long id;
     String username;
     String password;
     String classRoom;
@@ -10,14 +10,14 @@ public class Student{
     public Student() {
     }
 
-    public Student(long id, String username, String password, String classRoom) {
+    public Student(Long id, String username, String password, String classRoom) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.classRoom = classRoom;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
