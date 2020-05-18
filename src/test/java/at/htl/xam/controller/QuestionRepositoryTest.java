@@ -73,7 +73,7 @@ class QuestionRepositoryTest {
         QuestionRepository questionRepository = new QuestionRepository();
         Table table = new Table(DatasourceFactory.getDataSource(), "Question");
 
-        Question question = questionRepository.findById(2);
+        Question question = questionRepository.findById(1);
 
         String[] expected = {String.valueOf(question.getId()), question.getHeadline(), question.getDesc(), question.getResult()};
         String[] actual = {
