@@ -2,10 +2,10 @@ package at.htl.xam.model;
 
 public class Person {
 
-    Long id;
-    String username;
-    String password; //verschlüsselt speichern
-    String type; //Teacher oder Student
+    private Long id;
+    private String username;
+    private String password; //verschlüsselt speichern
+    private String type; //Teacher oder Student
 
 
     public Long getId() {

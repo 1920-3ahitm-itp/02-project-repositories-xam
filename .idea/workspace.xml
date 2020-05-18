@@ -19,9 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0556fb5-6b52-4b21-b25d-c212ab96a139" name="Default Changelist" comment="QuestionRepositoryTest \ findbyid Test">
+    <list default="true" id="e0556fb5-6b52-4b21-b25d-c212ab96a139" name="Default Changelist" comment="bugfixes TeacherRepository">
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/htl/xam/controller/QuizRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/htl/xam/controller/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/htl/xam/controller/StudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/htl/xam/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/htl/xam/model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/htl/xam/model/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/htl/xam/model/Quiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/htl/xam/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/htl/xam/model/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +68,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.build.android" />
   </component>
-  <component name="RunManager" selected="JUnit.QuestionRepositoryTest">
+  <component name="RunManager" selected="Application.SqlRunner">
     <configuration name="SqlRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="at.htl.xam.database.SqlRunner" />
       <module name="xam" />
@@ -96,8 +99,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.QuestionRepositoryTest" />
         <item itemvalue="Application.SqlRunner" />
+        <item itemvalue="JUnit.QuestionRepositoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -112,7 +115,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589483484175</updated>
       <workItem from="1589483485396" duration="10805000" />
-      <workItem from="1589796057015" duration="3995000" />
+      <workItem from="1589796057015" duration="3139000" />
     </task>
     <task id="LOCAL-00001" summary="Repariert">
       <created>1589485379996</created>
@@ -184,14 +187,7 @@
       <option name="project" value="LOCAL" />
       <updated>1589797760839</updated>
     </task>
-    <task id="LOCAL-00011" summary="QuestionRepositoryTest \ findbyid Test">
-      <created>1589799283100</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1589799283100</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,8 +216,7 @@
     <MESSAGE value="modified Teacher.java" />
     <MESSAGE value="bufixes" />
     <MESSAGE value="bugfixes TeacherRepository" />
-    <MESSAGE value="QuestionRepositoryTest \ findbyid Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="QuestionRepositoryTest \ findbyid Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="bugfixes TeacherRepository" />
   </component>
   <component name="WindowStateProjectService">
     <state x="524" y="131" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589797694181">
@@ -240,22 +235,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="758" y="204" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589485015967" />
-    <state width="1877" height="274" key="GridCell.Tab.0.bottom" timestamp="1589799203353">
+    <state width="1877" height="274" key="GridCell.Tab.0.bottom" timestamp="1589798766362">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589799203353" />
-    <state width="1877" height="274" key="GridCell.Tab.0.center" timestamp="1589799203353">
+    <state width="1877" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589798766362" />
+    <state width="1877" height="274" key="GridCell.Tab.0.center" timestamp="1589798766362">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589799203353" />
-    <state width="1877" height="274" key="GridCell.Tab.0.left" timestamp="1589799203353">
+    <state width="1877" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589798766362" />
+    <state width="1877" height="274" key="GridCell.Tab.0.left" timestamp="1589798766362">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589799203353" />
-    <state width="1877" height="274" key="GridCell.Tab.0.right" timestamp="1589799203353">
+    <state width="1877" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589798766362" />
+    <state width="1877" height="274" key="GridCell.Tab.0.right" timestamp="1589798766362">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589799203353" />
+    <state width="1877" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589798766362" />
     <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1589798028644">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -284,13 +279,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" width="1077" height="711" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589796126366" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1589799285329">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1589797763640">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589799285329" />
-    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589799702979">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589797763640" />
+    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589797233386">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589799702979" />
+    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589797233386" />
   </component>
 </project>
