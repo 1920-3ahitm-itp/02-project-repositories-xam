@@ -7,13 +7,15 @@ public class Quiz {
     private String description;
     private Long teacher_id;
 
+
     public Quiz() {
     }
 
-    public Quiz(Long id, String name, String description) {
+    public Quiz(Long id, String name, String description, Long teacher_id) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.teacher_id = teacher_id;
     }
 
     public Long getId() {
@@ -34,6 +36,10 @@ public class Quiz {
 
     public String getDescription() {
         return description;
+    }
+
+    public Long getTeacher_id() {
+        return teacher_id;
     }
 
     public void setDescription(String description) {
