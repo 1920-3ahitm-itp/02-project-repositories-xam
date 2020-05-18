@@ -19,9 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0556fb5-6b52-4b21-b25d-c212ab96a139" name="Default Changelist" comment="modified Question.java">
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/htl/xam/model/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/htl/xam/model/Quiz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/at/htl/xam/controller/QuestionRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/at/htl/xam/controller/QuestionRepositoryTest.java" afterDir="false" />
+    <list default="true" id="e0556fb5-6b52-4b21-b25d-c212ab96a139" name="Default Changelist" comment="modified Teacher.java">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a418cce3-ac5f-4992-b70e-0484086adc8f.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a418cce3-ac5f-4992-b70e-0484086adc8f/storage_v2/_src_/schema/SYS.rUIBAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a418cce3-ac5f-4992-b70e-0484086adc8f/storage_v2/_src_/schema/SYSCS_UTIL.JC_i2A.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a418cce3-ac5f-4992-b70e-0484086adc8f/storage_v2/_src_/schema/SYSIBM.hzyvkg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/htl/xam/controller/QuestionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/htl/xam/controller/QuestionRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +110,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589483484175</updated>
       <workItem from="1589483485396" duration="10805000" />
-      <workItem from="1589796057015" duration="630000" />
+      <workItem from="1589796057015" duration="1387000" />
     </task>
     <task id="LOCAL-00001" summary="Repariert">
       <created>1589485379996</created>
@@ -150,7 +154,21 @@
       <option name="project" value="LOCAL" />
       <updated>1589796630029</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="modified Quiz.java">
+      <created>1589796693293</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1589796693293</updated>
+    </task>
+    <task id="LOCAL-00008" summary="modified Teacher.java">
+      <created>1589796767520</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1589796767520</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,7 +193,9 @@
     <MESSAGE value="added drop-table.sql and bugfixes" />
     <MESSAGE value="modified Person.java" />
     <MESSAGE value="modified Question.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified Question.java" />
+    <MESSAGE value="modified Quiz.java" />
+    <MESSAGE value="modified Teacher.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified Teacher.java" />
   </component>
   <component name="WindowStateProjectService">
     <state x="524" y="131" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589486260159">
@@ -222,9 +242,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" width="1077" height="711" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589796126366" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1589796592523">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1589796769502">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589796592523" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589796769502" />
+    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589797233386">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589797233386" />
   </component>
 </project>

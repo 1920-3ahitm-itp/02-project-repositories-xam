@@ -78,7 +78,7 @@ public class QuestionRepository {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, question.getHeadline());
             pstmt.setString(2, question.getDesc());
-            pstmt.setInt(3, question.getId());
+            pstmt.setLong(3, question.getId());
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -97,7 +97,7 @@ public class QuestionRepository {
             ResultSet result = pstmt.executeQuery();
 
             while(result.next()){
-                int id = result.getInt("question_id");
+                long id = result.getInt("question_id");
                 String headline = result.getString("headline");
                 String description = result.getString("description");
                 String qResult = result.getString("result");
@@ -135,7 +135,7 @@ public class QuestionRepository {
             pstmt.setString(1, question.getHeadline());
             pstmt.setString(2, question.getDesc());
             pstmt.setString(3, question.getResult());
-            pstmt.setInt(4, question.getId());
+            pstmt.setLong(4, question.getId());
 
         } catch (SQLException e) {
             e.printStackTrace();
