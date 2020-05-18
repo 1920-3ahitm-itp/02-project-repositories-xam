@@ -85,12 +85,12 @@ public class StudentRepository {
             ResultSet result = pstmt.executeQuery();
 
             while(result.next()){
-                int id = result.getInt("student_id");
+                long id = result.getInt("student_id");
                 String name = result.getString("name");
                 String username = result.getString("username");
                 String password = result.getString("password");
                 String classRoom = result.getString("class");
-                teachers.add(new Teacher(id, name, username, password, classRoom));
+                students.add(new Student(id, name, username, password, classRoom));
             }
 
         } catch (SQLException e) {
@@ -107,7 +107,7 @@ public class StudentRepository {
             // TODO: Delete student from database
             String sql = "DELETE FROM Student WHERE student_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setInt(1, student.getId());
+            pstmt.setLong(1, student.getId());
 
             pstmt.execute();
 
