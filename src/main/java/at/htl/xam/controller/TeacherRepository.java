@@ -84,7 +84,7 @@ public class TeacherRepository {
             ResultSet result = pstmt.executeQuery();
 
             while(result.next()){
-                int id = result.getInt("question_id");
+                long id = result.getInt("question_id");
                 String name = result.getString("name");
                 String username = result.getString("username");
                 String password = result.getString("password");
@@ -105,7 +105,7 @@ public class TeacherRepository {
             // TODO: Delete teacher from database
             String sql = "DELETE FROM Teacher WHERE teacher_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setInt(1, teacher.getId());
+            pstmt.setLong(1, teacher.getId());
 
             pstmt.execute();
 
@@ -119,12 +119,11 @@ public class TeacherRepository {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Update question in database
-            String sql = "UPDATE Teacher SET teacher_id = ?, name = ?, username = ?, password = ?,  WHERE CATEGORY_ID = ?";
+            String sql = "UPDATE Teacher SET teacher_id = ?, name = ?, username = ?, password = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setInt(1, teacher.getId());
+            pstmt.setLong(1, teacher.getId());
             pstmt.setString(2, teacher.getName());
             pstmt.setString(3, teacher.getUsername());
-            pstmt.setInt(4, teacher.getId());
 
         } catch (SQLException e) {
             e.printStackTrace();
