@@ -2,11 +2,11 @@ package at.htl.xam.model;
 
 public class Student{
 
-    Long id;
-    String name;
-    String username;
-    String password;
-    String classRoom;
+    private Long id;
+    private String name;
+    private String username;
+    private String password;
+    private String classRoom;
 
     public Student() {
     }

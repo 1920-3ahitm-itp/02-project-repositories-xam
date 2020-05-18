@@ -2,9 +2,10 @@ package at.htl.xam.model;
 
 public class Quiz {
 
-    Long id;
-    String name;
-    String description;
+    private Long id;
+    private String name;
+    private String description;
+    private Long teacher_id;
 
     public Quiz() {
     }
