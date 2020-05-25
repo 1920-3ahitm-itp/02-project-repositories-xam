@@ -15,7 +15,7 @@ class TeacherRepositoryTest {
     }
 
     @Test
-    void insert() {
+    void save() {
         TeacherRepository teacherRepository = new TeacherRepository();
 
         Teacher teacher = new Teacher("TeacherName", "TeacherUsername", "TeacherPassword");
