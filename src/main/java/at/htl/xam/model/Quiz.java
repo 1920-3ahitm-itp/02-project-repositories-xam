@@ -1,21 +1,26 @@
 package at.htl.xam.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Quiz {
 
     private Long quiId;
     private String quiName;
     private String quiDescription;
-    private Long quiTeacher_id;
+    private Teacher quiTeacher;
+    public static List<Teacher> teachers = new ArrayList<>();
 
 
     public Quiz() {
     }
 
-    public Quiz(Long quiId, String quiName, String quiDescription, Long quiTeacher_id) {
+    public Quiz(Long quiId, String quiName, String quiDescription, Teacher quiTeacher) {
         this.quiId = quiId;
         this.quiName = quiName;
         this.quiDescription = quiDescription;
-        this.quiTeacher_id = quiTeacher_id;
+        this.quiTeacher = quiTeacher;
+        teachers.add(quiTeacher);
     }
 
     public Long getQuiId() {
@@ -38,8 +43,8 @@ public class Quiz {
         return quiDescription;
     }
 
-    public Long getQuiTeacher_id() {
-        return quiTeacher_id;
+    public Teacher getQuiTeacher() {
+        return quiTeacher;
     }
 
     public void setQuiDescription(String quiDescription) {
