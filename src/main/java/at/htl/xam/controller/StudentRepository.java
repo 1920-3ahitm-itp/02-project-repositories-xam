@@ -1,7 +1,6 @@
 package at.htl.xam.controller;
 
 import at.htl.xam.model.Student;
-import at.htl.xam.model.Teacher;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -63,10 +62,10 @@ public class StudentRepository {
             // TODO: Insert student in database
             String sql = "INSERT INTO Student(name, username, password, class) VALUES(?, ?, ?, ?)";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, student.getName());
-            pstmt.setString(2, student.getUsername());
-            pstmt.setString(3, student.getPassword());
-            pstmt.setString(4, student.getClassRoom());
+            pstmt.setString(1, student.getsName());
+            pstmt.setString(2, student.getsUsername());
+            pstmt.setString(3, student.getsPassword());
+            pstmt.setString(4, student.getsClassRoom());
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -107,7 +106,7 @@ public class StudentRepository {
             // TODO: Delete student from database
             String sql = "DELETE FROM Student WHERE student_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setLong(1, student.getId());
+            pstmt.setLong(1, student.getsId());
 
             pstmt.execute();
 
@@ -123,10 +122,10 @@ public class StudentRepository {
             // TODO: Update question in database
             String sql = "UPDATE Student SET name = ?, username = ?, password = ?,  class = ? WHERE student_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, student.getName());
-            pstmt.setString(2, student.getUsername());
-            pstmt.setString(3, student.getUsername());
-            pstmt.setString(4, student.getClassRoom());
+            pstmt.setString(1, student.getsName());
+            pstmt.setString(2, student.getsUsername());
+            pstmt.setString(3, student.getsUsername());
+            pstmt.setString(4, student.getsClassRoom());
 
 
         } catch (SQLException e) {

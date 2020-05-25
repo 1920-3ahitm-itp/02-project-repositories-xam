@@ -2,47 +2,47 @@ package at.htl.xam.model;
 
 public class Quiz {
 
-    private Long id;
-    private String name;
-    private String description;
-    private Long teacher_id;
+    private Long quiId;
+    private String quiName;
+    private String quiDescription;
+    private Long quiTeacher_id;
 
 
     public Quiz() {
     }
 
-    public Quiz(Long id, String name, String description, Long teacher_id) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.teacher_id = teacher_id;
+    public Quiz(Long quiId, String quiName, String quiDescription, Long quiTeacher_id) {
+        this.quiId = quiId;
+        this.quiName = quiName;
+        this.quiDescription = quiDescription;
+        this.quiTeacher_id = quiTeacher_id;
     }
 
-    public Long getId() {
-        return id;
+    public Long getQuiId() {
+        return quiId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setQuiId(Long quiId) {
+        this.quiId = quiId;
     }
 
-    public String getName() {
-        return name;
+    public String getQuiName() {
+        return quiName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setQuiName(String quiName) {
+        this.quiName = quiName;
     }
 
-    public String getDescription() {
-        return description;
+    public String getQuiDescription() {
+        return quiDescription;
     }
 
-    public Long getTeacher_id() {
-        return teacher_id;
+    public Long getQuiTeacher_id() {
+        return quiTeacher_id;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setQuiDescription(String quiDescription) {
+        this.quiDescription = quiDescription;
     }
 }

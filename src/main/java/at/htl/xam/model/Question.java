@@ -2,56 +2,56 @@ package at.htl.xam.model;
 
 public class Question {
 
-    Long id;
-    String headline;
-    String desc;
-    String result;
+    private Long queId;
+    private String queHeadline;
+    private String queDesc;
+    private String queResult;
 
     public Question() {
     }
 
-    public Question(Long id, String headline, String desc, String result) {
-        this.id = id;
-        this.headline = headline;
-        this.desc = desc;
-        this.result = result;
+    public Question(Long queId, String queHeadline, String queDesc, String queResult) {
+        this.queId = queId;
+        this.queHeadline = queHeadline;
+        this.queDesc = queDesc;
+        this.queResult = queResult;
     }
 
-    public Question(String headline, String desc, String result) {
-        this.headline = headline;
-        this.desc = desc;
-        this.result = result;
+    public Question(String queHeadline, String queDesc, String queResult) {
+        this.queHeadline = queHeadline;
+        this.queDesc = queDesc;
+        this.queResult = queResult;
     }
 
-    public Long getId() {
-        return id;
+    public Long getQueId() {
+        return queId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setQueId(Long queId) {
+        this.queId = queId;
     }
 
-    public String getHeadline() {
-        return headline;
+    public String getQueHeadline() {
+        return queHeadline;
     }
 
-    public void setHeadline(String headline) {
-        this.headline = headline;
+    public void setQueHeadline(String queHeadline) {
+        this.queHeadline = queHeadline;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getQueDesc() {
+        return queDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setQueDesc(String queDesc) {
+        this.queDesc = queDesc;
     }
 
-    public String getResult() {
-        return result;
+    public String getQueResult() {
+        return queResult;
     }
 
-    public void setResult(String result) {
-        this.result = result;
+    public void setQueResult(String queResult) {
+        this.queResult = queResult;
     }
 }

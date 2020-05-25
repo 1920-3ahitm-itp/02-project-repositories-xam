@@ -1,6 +1,5 @@
 package at.htl.xam.controller;
 
-import at.htl.xam.model.Question;
 import at.htl.xam.model.Quiz;
 import at.htl.xam.model.Teacher;
 
@@ -50,10 +49,10 @@ public class QuizRepository {
             // TODO: Insert question in database
             String sql = "INSERT INTO Quiz(quiz_id, name, description, teacher_id) VALUES(?, ?, ?, ?)";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setLong(1, quiz.getId());
-            pstmt.setString(2, quiz.getName());
-            pstmt.setString(3, quiz.getDescription());
-            pstmt.setLong(4, teacher.getId());
+            pstmt.setLong(1, quiz.getQuiId());
+            pstmt.setString(2, quiz.getQuiName());
+            pstmt.setString(3, quiz.getQuiDescription());
+            pstmt.setLong(4, teacher.gettId());
 
             pstmt.execute();
         } catch (SQLException e) {
@@ -107,10 +106,10 @@ public class QuizRepository {
             // TODO: Update question in database
             String sql = "UPDATE Quiz SET name = ?, description = ?, teacher_id = ? WHERE QUIZ_ID = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, quiz.getName());
-            pstmt.setString(2, quiz.getDescription());
-            pstmt.setLong(3, quiz.getTeacher_id());
-            pstmt.setLong(4, quiz.getId());
+            pstmt.setString(1, quiz.getQuiName());
+            pstmt.setString(2, quiz.getQuiDescription());
+            pstmt.setLong(3, quiz.getQuiTeacher_id());
+            pstmt.setLong(4, quiz.getQuiId());
 
         } catch (SQLException e) {
             e.printStackTrace();

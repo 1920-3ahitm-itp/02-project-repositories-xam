@@ -155,11 +155,6 @@ public class QuestionRepository {
                 rs.next();
                 String headline = rs.getString("headline");
                 q.setHeadline(headline);
-                String desc = rs.getString("description");
-                q.setDesc(desc);
-                String result = rs.getString("result");
-                q.setResult(result);
-
                 return q;
             }
         } catch (SQLException throwables) {
