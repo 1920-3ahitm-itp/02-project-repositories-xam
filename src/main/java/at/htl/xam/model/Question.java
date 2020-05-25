@@ -6,6 +6,8 @@ public class Question {
     private String queHeadline;
     private String queDesc;
     private String queResult;
+    private Quiz queQuiz;
+
 
     public Question() {
     }
