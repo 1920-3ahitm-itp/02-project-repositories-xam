@@ -11,6 +11,13 @@ public class Student{
     public Student() {
     }
 
+    public Student(String sName, String sUsername, String sPassword, String sClassRoom) {
+        this.sName = sName;
+        this.sUsername = sUsername;
+        this.sPassword = sPassword;
+        this.sClassRoom = sClassRoom;
+    }
+
     public Student(Long sId, String sName, String sUsername, String sPassword, String sClassRoom) {
         this.sId = sId;
         this.sName = sName;

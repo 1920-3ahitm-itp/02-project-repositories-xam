@@ -55,7 +55,7 @@ class TeacherRepositoryTest {
 
         Teacher teacher = teacherRepository.findById(1L);
 
-        String[] expected = {String.valueOf(teacher.getQueId()), teacher.getQueHeadline(), teacher.getQueDesc(), teacher.getQueResult()};
+        String[] expected = {String.valueOf(teacher.gettId()), teacher.gettName(), teacher.gettUsername(), teacher.gettPassword()};
         String[] actual = {
                 table.getRow(1).getValuesList().get(0).getValue().toString(),
                 table.getRow(1).getValuesList().get(1).getValue().toString(),
