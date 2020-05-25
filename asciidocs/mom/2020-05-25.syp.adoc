@@ -1,0 +1,55 @@
+= Besprechungsprotokoll 25.25.2020
+Vorname Nachname
+1.0, yyyy-mm-dd
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Vorname NAchname
+|
+
+|R. Reder (teilweise)
+|
+
+|T. Stütz
+|
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Discord
+
+|von-bis
+|Mo. 20.4.2020, 2. und 3. EH
+|Dauer
+|70 min
+|===
+
+
+
+== Besprochene Themen
+
+* Github-Repository
+* Github-Page
+* Gantt-Chart
+* Systemarchitektur
+* Pflichtenheft (vor allem Aufgabenstellung)
+* Film für Leonie
+* Leonie Modell
+* Christian Website für Systemarchitektur
+* Animation der Systemarchitektur
+
+
+=== Vereinbarungen und Entscheidungen
+
+==== Punkt 1
+
+image:favicon.png[]
+
+==== Punkt 2
