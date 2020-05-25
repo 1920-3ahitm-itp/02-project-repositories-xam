@@ -9,9 +9,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionRepository {
+public class QuestionRepository implements Repository<Question> {
 
-    public void addQuestion(Question question) {
+    @Override
+    public void save(Question question) {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Insert question in database
@@ -28,7 +29,24 @@ public class QuestionRepository {
         }
     }
 
-    public List<Question> getAllQuestions() {
+    @Override
+    public void delete(Long id) {
+        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
+
+            // TODO: Delete question from database
+            String sql = "DELETE FROM Question WHERE question_id = ?";
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setLong(1, id);
+
+            pstmt.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Question> findAll() {
         List<Question> questions = new ArrayList<>();
 
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
@@ -53,38 +71,8 @@ public class QuestionRepository {
         return questions;
     }
 
-    public void removeQuestion(int id) {
-        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
-
-            // TODO: Delete question from database
-            String sql = "DELETE FROM Question WHERE question_id = ?";
-            PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setInt(1, id);
-
-            pstmt.execute();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void saveQuestion(Question question) {
-        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
-
-            // TODO: Update question in database
-            String sql = "UPDATE Question SET headline = ?, description = ?, result = ? WHERE question_id = ?";
-            PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, question.getQueHeadline());
-            pstmt.setString(2, question.getQueDesc());
-            pstmt.setString(3, question.getQueResult());
-            pstmt.setLong(4, question.getQueId());
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public Question findById(long id) {
+    @Override
+    public Question findById(Long id) {
         try (Connection conn = DatasourceFactory.getDataSource().getConnection()) {
             String sql = "SELECT * FROM Question WHERE question_id = ?";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
