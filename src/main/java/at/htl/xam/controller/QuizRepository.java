@@ -1,5 +1,6 @@
 package at.htl.xam.controller;
 
+import at.htl.xam.model.Question;
 import at.htl.xam.model.Quiz;
 import at.htl.xam.model.Teacher;
 
@@ -10,40 +11,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuizRepository {
+public class QuizRepository implements Repository<Quiz> {
 
-    public void dropTable() {
-        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
-
-            String sql = "DROP TABLE Quiz";
-
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.execute();
-            System.out.println("Dropped table Quiz.");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public boolean tableExists() {
-        try (Connection conn = DatasourceFactory.getDataSource().getConnection()) {
-
-            String sql = "SELECT * FROM SYS.SYSTABLES WHERE TABLENAME = 'Quiz'";
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            ResultSet result = pstmt.executeQuery();
-
-            if (result.next()) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public void addQuiz(Quiz quiz, Teacher teacher) {
+    @Override
+    public void save(Quiz quiz) {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Insert question in database
@@ -52,7 +23,7 @@ public class QuizRepository {
             pstmt.setLong(1, quiz.getQuiId());
             pstmt.setString(2, quiz.getQuiName());
             pstmt.setString(3, quiz.getQuiDescription());
-            pstmt.setLong(4, teacher.gettId());
+            pstmt.setLong(4, quiz.getQuiTeacher().gettId());
 
             pstmt.execute();
         } catch (SQLException e) {
@@ -60,7 +31,25 @@ public class QuizRepository {
         }
     }
 
-    public List<Quiz> getAllQuizzes() {
+
+    @Override
+    public void delete(Long id) {
+        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
+
+            // TODO: Delete question from database
+            String sql = "DELETE FROM Question WHERE quiz_id = ?";
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setLong(1, id);
+
+            pstmt.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Quiz> findAll() {
         List<Quiz> quizzes = new ArrayList<>();
 
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
@@ -70,12 +59,18 @@ public class QuizRepository {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             ResultSet result = pstmt.executeQuery();
 
-            while(result.next()){
+            while (result.next()) {
                 long id = result.getInt("quiz_id");
                 String name = result.getString("name");
                 String description = result.getString("description");
-                long teacher_id = result.getInt("teacher_id");
-                quizzes.add(new Quiz(id, name, description, teacher_id));
+                Long teacher_id = result.getLong("teacher_id");
+                Teacher teacher1 = null;
+                for (Teacher teacher : Quiz.teachers) {
+                    if (teacher.gettId() == teacher_id) {
+                        teacher1 = teacher;
+                    }
+                }
+                quizzes.add(new Quiz(id, name, description, teacher1));
             }
 
         } catch (SQLException e) {
@@ -85,35 +80,30 @@ public class QuizRepository {
         return quizzes;
     }
 
-    public void removeQuiz(int id) {
-        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
+    @Override
+    public Quiz findById(Long id) {
+        try (Connection conn = DatasourceFactory.getDataSource().getConnection()) {
+            String sql = "SELECT * FROM quiz WHERE quiz_id = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setLong(1, id);
 
-            // TODO: Delete question from database
-            String sql = "DELETE FROM Question WHERE quiz_id = ?";
-            PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setInt(1, id);
-
-            pstmt.execute();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+            try (ResultSet rs = preparedStatement.executeQuery()) {
+                //Quiz(Long quiId, String quiName, String quiDescription, Teacher quiTeacher)
+                Teacher quiTeacher = null;
+                for (Teacher teacher : Quiz.teachers) {
+                    if (teacher.gettId() == rs.getLong("teacher_id")) {
+                        quiTeacher = teacher;
+                    }
+                }
+                return new Quiz(rs.getLong("quiz_id"), rs.getString("name"), rs.getString("description"), quiTeacher);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
+
+
+        return null;
     }
-
-    public void saveQuiz(Quiz quiz) {
-        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
-
-            // TODO: Update question in database
-            String sql = "UPDATE Quiz SET name = ?, description = ?, teacher_id = ? WHERE QUIZ_ID = ?";
-            PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, quiz.getQuiName());
-            pstmt.setString(2, quiz.getQuiDescription());
-            pstmt.setLong(3, quiz.getQuiTeacher_id());
-            pstmt.setLong(4, quiz.getQuiId());
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
 }
+
+
