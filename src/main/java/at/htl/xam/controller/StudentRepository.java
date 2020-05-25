@@ -1,62 +1,20 @@
 package at.htl.xam.controller;
 
+import at.htl.xam.model.Quiz;
 import at.htl.xam.model.Student;
+import at.htl.xam.model.Teacher;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
-public class StudentRepository {
-    private StudentRepository studentRepository = new StudentRepository();
+public class StudentRepository implements Repository<Student>{
 
-    public StudentRepository() {
-        if (!tableExists()) {
-            createTable();
-        }
-    }
-
-    public void createTable() {
-        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
-
-            String sql = "CREATE TABLE Student(" +
-                    "student_id int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
-                    "name varchar(50) NOT NULL," +
-                    "username varchar(50) NOT NULL," +
-                    "password varchar(32) NOT NULL," +
-                    "class varchar(6) NOT NULL," +
-                    "CONSTRAINT PK_Student PRIMARY KEY (student_id)" +
-                    ")";
-
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.execute();
-            System.out.println("Created table Student.");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public boolean tableExists() {
-        try (Connection conn = DatasourceFactory.getDataSource().getConnection()) {
-
-            String sql = "SELECT * FROM SYS.SYSTABLES WHERE TABLENAME = 'Student'";
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            ResultSet result = pstmt.executeQuery();
-
-            if (result.next()) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-
-    public void addStudent(Student student) {
+    @Override
+    public void save(Student student) {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Insert student in database
@@ -72,9 +30,25 @@ public class StudentRepository {
         }
     }
 
+    @Override
+    public void delete(Long id) {
+        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
-    public List<Student> getAllStudents() {
-        List<Student> students = studentRepository.getAllStudents();
+            // TODO: Delete student from database
+            String sql = "DELETE FROM Student WHERE student_id = ?";
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setLong(1, id);
+
+            pstmt.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Student> findAll() {
+        List<Student> students = new ArrayList<>();
 
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
@@ -99,37 +73,23 @@ public class StudentRepository {
         return students;
     }
 
+    @Override
+    public Student findById(Long id) {
+        try (Connection conn = DatasourceFactory.getDataSource().getConnection()) {
+            String sql = "SELECT * FROM student WHERE student_id = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setLong(1, id);
 
-    public void removeStudent(Student student) {
-        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
+            try (ResultSet rs = preparedStatement.executeQuery()) {
+                //Student(String sName, String sUsername, String sPassword, String sClassRoom)
 
-            // TODO: Delete student from database
-            String sql = "DELETE FROM Student WHERE student_id = ?";
-            PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setLong(1, student.getsId());
-
-            pstmt.execute();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+                return new Student(rs.getString("name"), rs.getString("username"), rs.getString("password"), rs.getString("class"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
-    }
 
 
-    public void saveStudent(Student student) {
-        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
-
-            // TODO: Update question in database
-            String sql = "UPDATE Student SET name = ?, username = ?, password = ?,  class = ? WHERE student_id = ?";
-            PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, student.getsName());
-            pstmt.setString(2, student.getsUsername());
-            pstmt.setString(3, student.getsUsername());
-            pstmt.setString(4, student.getsClassRoom());
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        return null;
     }
 }

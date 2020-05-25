@@ -1,61 +1,19 @@
 package at.htl.xam.controller;
 
+import at.htl.xam.model.Quiz;
 import at.htl.xam.model.Teacher;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
-public class TeacherRepository {
-    private TeacherRepository teacherRepository = new TeacherRepository();
+public class TeacherRepository implements Repository<Teacher>{
 
-    public TeacherRepository() {
-        if (!tableExists()) {
-            createTable();
-        }
-    }
-
-    public void createTable() {
-        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
-
-            String sql = "CREATE TABLE Teacher(" +
-                    "teacher_id int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
-                    "name varchar(50) NOT NULL," +
-                    "username varchar(50) NOT NULL," +
-                    "password varchar(32) NOT NULL," +
-                    "CONSTRAINT PK_Teacher PRIMARY KEY (teacher_id)" +
-                    ")";
-
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.execute();
-            System.out.println("Created table Teacher.");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public boolean tableExists() {
-        try (Connection conn = DatasourceFactory.getDataSource().getConnection()) {
-
-            String sql = "SELECT * FROM SYS.SYSTABLES WHERE TABLENAME = 'Teacher'";
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            ResultSet result = pstmt.executeQuery();
-
-            if (result.next()) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-
-    public void addTeacher(Teacher teacher) {
+    @Override
+    public void save(Teacher teacher) {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Insert teacher in database
@@ -70,9 +28,25 @@ public class TeacherRepository {
         }
     }
 
+    @Override
+    public void delete(Long id) {
+        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
-    public List<Teacher> getAllTeachers() {
-        List<Teacher> teachers = teacherRepository.getAllTeachers();
+            // TODO: Delete teacher from database
+            String sql = "DELETE FROM Teacher WHERE teacher_id = ?";
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setLong(1, id);
+
+            pstmt.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Teacher> findAll() {
+        List<Teacher> teachers = new ArrayList<>();
 
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
@@ -82,7 +56,7 @@ public class TeacherRepository {
             ResultSet result = pstmt.executeQuery();
 
             while(result.next()){
-                long id = result.getInt("question_id");
+                long id = result.getInt("teacher_id");
                 String name = result.getString("name");
                 String username = result.getString("username");
                 String password = result.getString("password");
@@ -96,37 +70,21 @@ public class TeacherRepository {
         return teachers;
     }
 
+    @Override
+    public Teacher findById(Long id) {
+        try (Connection conn = DatasourceFactory.getDataSource().getConnection()) {
+            String sql = "SELECT * FROM quiz WHERE quiz_id = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setLong(1, id);
 
-    public void removeTeacher(Teacher teacher) {
-        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
+            try (ResultSet rs = preparedStatement.executeQuery()) {
+                //Teacher(String tName, String tUsername, String tPassword)
+                return new Teacher(rs.getString("name"), rs.getString("username"), rs.getString("password"));
+            }
 
-            // TODO: Delete teacher from database
-            String sql = "DELETE FROM Teacher WHERE teacher_id = ?";
-            PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setLong(1, teacher.gettId());
-
-            pstmt.execute();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
+        return null;
     }
-
-
-    public void saveTeacher(Teacher teacher) {
-        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
-
-            // TODO: Update question in database
-            String sql = "UPDATE Teacher SET teacher_id = ?, name = ?, username = ?, password = ?";
-            PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setLong(1, teacher.gettId());
-            pstmt.setString(2, teacher.gettName());
-            pstmt.setString(3, teacher.gettUsername());
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-
 }

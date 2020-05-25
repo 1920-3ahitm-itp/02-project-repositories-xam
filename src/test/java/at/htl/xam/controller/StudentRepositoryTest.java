@@ -1,14 +1,21 @@
 package at.htl.xam.controller;
 
+import at.htl.xam.database.SqlRunner;
 import at.htl.xam.model.Student;
 import org.assertj.db.api.Assertions;
 import org.assertj.db.type.Table;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 class StudentRepositoryTest {
 
+    @BeforeAll
+    static void beforeAll() {
+        SqlRunner.run();
+    }
+
     @Test
-    void insert() {
+    void save() {
         StudentRepository studentRepository = new StudentRepository();
 
         Student student = new Student("StudentName", "StudentUsername", "StudentPassword", "StudentClassroom");

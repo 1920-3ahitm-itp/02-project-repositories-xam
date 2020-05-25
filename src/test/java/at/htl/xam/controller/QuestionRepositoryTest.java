@@ -1,25 +1,34 @@
 package at.htl.xam.controller;
 
+import at.htl.xam.database.SqlRunner;
 import at.htl.xam.model.Question;
 import org.assertj.db.api.Assertions;
 import org.assertj.db.type.Table;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.db.api.Assertions.assertThat;
 
 class QuestionRepositoryTest {
 
+    @BeforeAll
+    static void beforeAll() {
+        SqlRunner.run();
+    }
+
     @Test
-    void insert() {
+    void save() {
         QuestionRepository questionRepository = new QuestionRepository();
 
-        Question question = new Question("QuestionHeadline", "QuestionDescription", "QuestionResult");
-
-        Table table = new Table(DatasourceFactory.getDataSource(), "Question");
+        Question question = new Question(1L,"QuestionHeadline", "QuestionDescription", "QuestionResult");
         questionRepository.save(question);
 
-        Assertions.assertThat(table).row(table.getRowsList().size() - 1)
-                .value("headline").isEqualTo("QuestionHeadline");
+        Table table = new Table(DatasourceFactory.getDataSource(), "Question");
+
+        Assertions.assertThat(table).row(0)
+                .value("headline").isEqualTo("QuestionHeadline")
+                .value("description").isEqualTo("QuestionDescription")
+                .value("result").isEqualTo("QuestionResult");
     }
 
     @Test
