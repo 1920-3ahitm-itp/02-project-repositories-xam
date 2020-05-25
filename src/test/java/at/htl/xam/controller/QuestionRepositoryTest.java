@@ -5,10 +5,7 @@ import org.assertj.db.api.Assertions;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.assertj.db.api.Assertions.assertThat;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class QuestionRepositoryTest {
 
@@ -75,7 +72,7 @@ class QuestionRepositoryTest {
 
         Question question = questionRepository.findById(2);
 
-        String[] expected = {String.valueOf(question.getId()), question.getHeadline(), question.getDesc(), question.getResult()};
+        String[] expected = {String.valueOf(question.getQueId()), question.getQueHeadline(), question.getQueDesc(), question.getQueResult()};
         String[] actual = {
                 table.getRow(1).getValuesList().get(0).getValue().toString(),
                 table.getRow(1).getValuesList().get(1).getValue().toString(),

@@ -2,35 +2,35 @@ package at.htl.xam.model;
 
 public class Teacher{
 
-    private Long id;
-    private String name;
-    private String username;
-    private String password;
+    private Long tId;
+    private String tName;
+    private String tUsername;
+    private String tPassword;
 
     public Teacher() {
     }
 
-    public Teacher(Long id, String name, String username, String password) {
-        this.id = id;
-        this.name = name;
-        this.username = username;
-        this.password = password;
+    public Teacher(Long tId, String tName, String tUsername, String tPassword) {
+        this.tId = tId;
+        this.tName = tName;
+        this.tUsername = tUsername;
+        this.tPassword = tPassword;
     }
 
-    public Long getId() {
-        return id;
+    public Long gettId() {
+        return tId;
     }
 
-    public String getName() {
-        return name;
+    public String gettName() {
+        return tName;
     }
 
-    public String getUsername() {
-        return username;
+    public String gettUsername() {
+        return tUsername;
     }
 
-    public String getPassword() {
-        return password;
+    public String gettPassword() {
+        return tPassword;
     }
 
 

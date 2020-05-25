@@ -2,57 +2,57 @@ package at.htl.xam.model;
 
 public class Student{
 
-    private Long id;
-    private String name;
-    private String username;
-    private String password;
-    private String classRoom;
+    private Long sId;
+    private String sName;
+    private String sUsername;
+    private String sPassword;
+    private String sClassRoom;
 
     public Student() {
     }
 
-    public Student(Long id, String name, String username, String password, String classRoom) {
-        this.id = id;
-        this.name = name;
-        this.username = username;
-        this.password = password;
-        this.classRoom = classRoom;
+    public Student(Long sId, String sName, String sUsername, String sPassword, String sClassRoom) {
+        this.sId = sId;
+        this.sName = sName;
+        this.sUsername = sUsername;
+        this.sPassword = sPassword;
+        this.sClassRoom = sClassRoom;
     }
 
-    public Long getId() {
-        return id;
+    public Long getsId() {
+        return sId;
     }
 
-    public String getName() {
-        return name;
+    public String getsName() {
+        return sName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setsName(String sName) {
+        this.sName = sName;
     }
 
-    public String getUsername() {
-        return username;
+    public String getsUsername() {
+        return sUsername;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setsUsername(String sUsername) {
+        this.sUsername = sUsername;
     }
 
-    public String getPassword() {
-        return password;
+    public String getsPassword() {
+        return sPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setsPassword(String sPassword) {
+        this.sPassword = sPassword;
     }
 
-    public String getClassRoom() {
-        return classRoom;
+    public String getsClassRoom() {
+        return sClassRoom;
     }
 
-    public void setClassRoom(String classRoom) {
-        this.classRoom = classRoom;
+    public void setsClassRoom(String sClassRoom) {
+        this.sClassRoom = sClassRoom;
     }
 }
 

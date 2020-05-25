@@ -76,9 +76,9 @@ public class QuestionRepository {
             // TODO: Insert question in database
             String sql = "INSERT INTO Question(headline, description, result, QUIZ_ID) VALUES(?, ?, ?, ?)";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, question.getHeadline());
-            pstmt.setString(2, question.getDesc());
-            pstmt.setString(3, question.getResult());
+            pstmt.setString(1, question.getQueHeadline());
+            pstmt.setString(2, question.getQueDesc());
+            pstmt.setString(3, question.getQueResult());
             pstmt.setLong(4, 1);
 
             pstmt.execute();
@@ -133,10 +133,10 @@ public class QuestionRepository {
             // TODO: Update question in database
             String sql = "UPDATE Question SET headline = ?, description = ?, result = ? WHERE question_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, question.getHeadline());
-            pstmt.setString(2, question.getDesc());
-            pstmt.setString(3, question.getResult());
-            pstmt.setLong(4, question.getId());
+            pstmt.setString(1, question.getQueHeadline());
+            pstmt.setString(2, question.getQueDesc());
+            pstmt.setString(3, question.getQueResult());
+            pstmt.setLong(4, question.getQueId());
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -151,10 +151,10 @@ public class QuestionRepository {
 
             try (ResultSet rs = preparedStatement.executeQuery()) {
                 Question q = new Question();
-                q.setId(id);
+                q.setQueId(id);
                 rs.next();
                 String headline = rs.getString("headline");
-                q.setHeadline(headline);
+                q.setQueHeadline(headline);
                 return q;
             }
         } catch (SQLException throwables) {

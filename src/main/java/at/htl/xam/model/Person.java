@@ -2,42 +2,42 @@ package at.htl.xam.model;
 
 public class Person {
 
-    private Long id;
-    private String username;
-    private String password; //verschlüsselt speichern
-    private String type; //Teacher oder Student
+    private Long pId;
+    private String pUsername;
+    private String pPassword; //verschlüsselt speichern
+    private String pType; //Teacher oder Student
 
 
-    public Long getId() {
-        return id;
+    public Long getpId() {
+        return pId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setpId(Long pId) {
+        this.pId = pId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getpUsername() {
+        return pUsername;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setpUsername(String pUsername) {
+        this.pUsername = pUsername;
     }
 
-    public String getPassword() {
-        return password;
+    public String getpPassword() {
+        return pPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setpPassword(String pPassword) {
+        this.pPassword = pPassword;
     }
 
-    public String getType() {
-        return type;
+    public String getpType() {
+        return pType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setpType(String pType) {
+        this.pType = pType;
     }
 
 

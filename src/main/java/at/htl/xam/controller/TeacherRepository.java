@@ -1,13 +1,11 @@
 package at.htl.xam.controller;
 
-import at.htl.xam.model.Question;
 import at.htl.xam.model.Teacher;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class TeacherRepository {
@@ -63,9 +61,9 @@ public class TeacherRepository {
             // TODO: Insert teacher in database
             String sql = "INSERT INTO Teacher(name, username, password) VALUES(?, ?, ?)";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, teacher.getName());
-            pstmt.setString(2, teacher.getUsername());
-            pstmt.setString(3, teacher.getPassword());
+            pstmt.setString(1, teacher.gettName());
+            pstmt.setString(2, teacher.gettUsername());
+            pstmt.setString(3, teacher.gettPassword());
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -105,7 +103,7 @@ public class TeacherRepository {
             // TODO: Delete teacher from database
             String sql = "DELETE FROM Teacher WHERE teacher_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setLong(1, teacher.getId());
+            pstmt.setLong(1, teacher.gettId());
 
             pstmt.execute();
 
@@ -121,9 +119,9 @@ public class TeacherRepository {
             // TODO: Update question in database
             String sql = "UPDATE Teacher SET teacher_id = ?, name = ?, username = ?, password = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setLong(1, teacher.getId());
-            pstmt.setString(2, teacher.getName());
-            pstmt.setString(3, teacher.getUsername());
+            pstmt.setLong(1, teacher.gettId());
+            pstmt.setString(2, teacher.gettName());
+            pstmt.setString(3, teacher.gettUsername());
 
         } catch (SQLException e) {
             e.printStackTrace();
