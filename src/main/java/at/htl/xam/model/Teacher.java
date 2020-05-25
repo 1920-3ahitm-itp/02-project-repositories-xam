@@ -10,6 +10,12 @@ public class Teacher{
     public Teacher() {
     }
 
+    public Teacher(String tName, String tUsername, String tPassword) {
+        this.tName = tName;
+        this.tUsername = tUsername;
+        this.tPassword = tPassword;
+    }
+
     public Teacher(Long tId, String tName, String tUsername, String tPassword) {
         this.tId = tId;
         this.tName = tName;

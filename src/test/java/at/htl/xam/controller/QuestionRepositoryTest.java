@@ -10,28 +10,13 @@ import static org.assertj.db.api.Assertions.assertThat;
 class QuestionRepositoryTest {
 
     @Test
-    void save() {
-        QuestionRepository questionRepository = new QuestionRepository();
-
-        Question question = new Question(1L,"QuestionHeadline", "QuestionDescription", "QuestionResult");
-        questionRepository.saveQuestion(question);
-
-        Table table = new Table(DatasourceFactory.getDataSource(), "Question");
-
-        Assertions.assertThat(table).row(0)
-                .value("headline").isEqualTo("QuestionHeadline")
-                .value("description").isEqualTo("QuestionDescription")
-                .value("result").isEqualTo("QuestionResult");
-    }
-
-    @Test
     void insert() {
         QuestionRepository questionRepository = new QuestionRepository();
 
         Question question = new Question("QuestionHeadline", "QuestionDescription", "QuestionResult");
 
         Table table = new Table(DatasourceFactory.getDataSource(), "Question");
-        questionRepository.addQuestion(question);
+        questionRepository.save(question);
 
         Assertions.assertThat(table).row(table.getRowsList().size() - 1)
                 .value("headline").isEqualTo("QuestionHeadline");
@@ -41,14 +26,14 @@ class QuestionRepositoryTest {
     void delete() {
         QuestionRepository questionRepository = new QuestionRepository();
 
-        questionRepository.addQuestion(new Question(99L, "QuestionHeadline", "QuestionDescription", "QuestionResult"));
+        questionRepository.save(new Question(99L, "QuestionHeadline", "QuestionDescription", "QuestionResult"));
 
         Question question = new Question(99L, "QuestionHeadline", "QuestionDescription", "QuestionResult");
-        questionRepository.addQuestion(question);
+        questionRepository.save(question);
         Table table = new Table(DatasourceFactory.getDataSource(), "Question");
 
         int rowsBefore = table.getRowsList().size();
-        questionRepository.removeQuestion(rowsBefore - 1);
+        questionRepository.delete(rowsBefore - 1L);
         int rowsAfter = table.getRowsList().size();
 
         org.assertj.core.api.Assertions.assertThat(rowsBefore).isEqualTo(rowsAfter);
@@ -59,7 +44,7 @@ class QuestionRepositoryTest {
         QuestionRepository questionRepository = new QuestionRepository();
         Table table = new Table(DatasourceFactory.getDataSource(), "Question");
 
-        int findAllRows = questionRepository.getAllQuestions().size();
+        int findAllRows = questionRepository.findAll().size();
         int tableRows = table.getRowsList().size();
 
         org.assertj.core.api.Assertions.assertThat(findAllRows).isEqualTo(tableRows);
@@ -70,7 +55,7 @@ class QuestionRepositoryTest {
         QuestionRepository questionRepository = new QuestionRepository();
         Table table = new Table(DatasourceFactory.getDataSource(), "Question");
 
-        Question question = questionRepository.findById(1);
+        Question question = questionRepository.findById(1L);
 
         String[] expected = {String.valueOf(question.getQueId()), question.getQueHeadline(), question.getQueDesc(), question.getQueResult()};
         String[] actual = {

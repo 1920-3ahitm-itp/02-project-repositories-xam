@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="db@localhost" uuid="8067886a-17e5-4c60-84b6-2e3a2de14678">
+    <data-source source="LOCAL" name="db@localhost" uuid="43da8721-d95b-43f4-8da4-86e2733b03fb">
       <driver-ref>derby.remote</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.apache.derby.jdbc.ClientDriver</jdbc-driver>
