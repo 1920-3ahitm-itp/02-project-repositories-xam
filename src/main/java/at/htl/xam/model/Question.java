@@ -56,4 +56,12 @@ public class Question {
     public void setQueResult(String queResult) {
         this.queResult = queResult;
     }
+
+    public Quiz getQueQuiz() {
+        return queQuiz;
+    }
+
+    public void setQueQuiz(Quiz queQuiz) {
+        this.queQuiz = queQuiz;
+    }
 }

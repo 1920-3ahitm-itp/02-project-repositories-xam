@@ -11,9 +11,18 @@ import java.util.List;
 
 public class QuestionRepository implements Repository<Question> {
 
+    List<Question> questions = new ArrayList<>();
+
     @Override
     public void save(Question question) {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
+
+            for (Question q : questions) {
+                if (q.getQueId() == question.getQueId()) {
+                    update(question);
+                }
+            }
+
 
             // TODO: Insert question in database
             String sql = "INSERT INTO Question(headline, description, result, QUIZ_ID) VALUES(?, ?, ?, ?)";
@@ -22,6 +31,27 @@ public class QuestionRepository implements Repository<Question> {
             pstmt.setString(2, question.getQueDesc());
             pstmt.setString(3, question.getQueResult());
             pstmt.setLong(4, 1);
+
+
+            pstmt.execute();
+            questions.add(question);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void update(Question question) {
+
+        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
+
+            // TODO: Delete question from database
+            String sql = "UPDATE Question SET question_id = ?, headline = ?, description = ?, result = ?, quiz_id = ?";
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setLong(1, question.getQueId());
+            pstmt.setString(2, question.getQueHeadline());
+            pstmt.setString(3, question.getQueDesc());
+            pstmt.setString(4, question.getQueResult());
+            pstmt.setLong(5, question.getQueQuiz().getQuiId());
 
             pstmt.execute();
         } catch (SQLException e) {
@@ -39,7 +69,7 @@ public class QuestionRepository implements Repository<Question> {
             pstmt.setLong(1, id);
 
             pstmt.execute();
-
+            questions.remove(Integer.parseInt(String.valueOf(id)));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -47,7 +77,7 @@ public class QuestionRepository implements Repository<Question> {
 
     @Override
     public List<Question> findAll() {
-        List<Question> questions = new ArrayList<>();
+        List<Question> questions_found = new ArrayList<>();
 
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
@@ -61,14 +91,14 @@ public class QuestionRepository implements Repository<Question> {
                 String headline = result.getString("headline");
                 String description = result.getString("description");
                 String qResult = result.getString("result");
-                questions.add(new Question(id, headline, description, qResult));
+                questions_found.add(new Question(id, headline, description, qResult));
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return questions;
+        return questions_found;
     }
 
     @Override
