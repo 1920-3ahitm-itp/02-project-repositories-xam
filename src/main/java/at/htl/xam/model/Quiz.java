@@ -23,6 +23,18 @@ public class Quiz {
         teachers.add(quiTeacher);
     }
 
+    public Quiz(Long quiId, String quiName, String quiDescription) {
+        this.quiId = quiId;
+        this.quiName = quiName;
+        this.quiDescription = quiDescription;
+    }
+
+    public Quiz(String quiName, String quiDescription, Teacher quiTeacher) {
+        this.quiName = quiName;
+        this.quiDescription = quiDescription;
+        this.quiTeacher = quiTeacher;
+    }
+
     public Long getQuiId() {
         return quiId;
     }
