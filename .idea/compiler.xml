@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="xam" target="14" />
+      <module name="xam" target="13" />
     </bytecodeTargetLevel>
   </component>
 </project>

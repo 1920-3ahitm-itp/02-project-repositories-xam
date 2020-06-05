@@ -20,16 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0556fb5-6b52-4b21-b25d-c212ab96a139" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/asciidocs/mom/template.adoc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_14_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_mac_14_0_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_14_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_mac_14_0_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_14_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_mac_14_0_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_14_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_mac_14_0_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/htl/xam/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/htl/xam/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xam.iml" beforeDir="false" afterPath="$PROJECT_DIR$/xam.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,6 +147,8 @@
       <workItem from="1590401544894" duration="407000" />
       <workItem from="1590404449498" duration="2132000" />
       <workItem from="1590418877139" duration="603000" />
+      <workItem from="1591341390789" duration="270000" />
+      <workItem from="1591341676261" duration="834000" />
     </task>
     <task id="LOCAL-00001" summary="Repariert">
       <created>1589485379996</created>
@@ -271,6 +268,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="TeacherRepositoryTest finished" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="440" y="159" key="#Plugins" timestamp="1591341661576">
+      <screen x="0" y="23" width="1680" height="978" />
+    </state>
+    <state x="440" y="159" key="#Plugins/0.23.1680.978@0.23.1680.978" timestamp="1591341661576" />
     <state x="524" y="131" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590405469646">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
