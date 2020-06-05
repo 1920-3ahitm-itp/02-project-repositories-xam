@@ -1,0 +1,49 @@
+= Besprechungsprotokoll xx.xx.2020
+Vorname Nachname
+1.0, yyyy-mm-dd
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Vorname NAchname
+|
+
+|
+|
+
+|
+|
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|
+
+|von-bis
+|
+
+|Dauer
+|
+|===
+
+
+
+== Besprochene Themen
+
+* Thema 1
+
+
+
+=== Vereinbarungen und Entscheidungen
+
+==== Punkt 1
+
+image:favicon.png[]
+
+==== Punkt 2
