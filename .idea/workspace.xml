@@ -19,12 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0556fb5-6b52-4b21-b25d-c212ab96a139" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/asciidocs/mom/template.adoc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e0556fb5-6b52-4b21-b25d-c212ab96a139" name="Default Changelist" comment="QuizRepository fixed">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/htl/xam/controller/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/htl/xam/controller/StudentRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590406280755</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary=".gitignore fixed">
+      <created>1591344371097</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1591344371097</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,7 +271,8 @@
     <MESSAGE value="bugfixes TeacherRepository" />
     <MESSAGE value="Started QuizRepository.java and edited fields" />
     <MESSAGE value="TeacherRepositoryTest finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="TeacherRepositoryTest finished" />
+    <MESSAGE value=".gitignore fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value=".gitignore fixed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="159" key="#Plugins" timestamp="1591341661576">
@@ -286,10 +293,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="658" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.-111.1920.1160@0.0.1920.1040" timestamp="1590401952125" />
-    <state x="666" y="39" key="CommitChangelistDialog2" timestamp="1590406280323">
+    <state x="666" y="39" key="CommitChangelistDialog2" timestamp="1591344389639">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="666" y="39" key="CommitChangelistDialog2/0.0.1920.1040/1920.-111.1920.1160@0.0.1920.1040" timestamp="1590406280323" />
+    <state x="666" y="39" key="CommitChangelistDialog2/0.0.1920.1040/1920.-111.1920.1160@0.0.1920.1040" timestamp="1591344389639" />
     <state x="666" y="126" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589801377448" />
     <state x="758" y="204" key="FileChooserDialogImpl" timestamp="1589485015967">
       <screen x="0" y="0" width="1920" height="1040" />

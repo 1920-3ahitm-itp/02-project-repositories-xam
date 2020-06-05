@@ -30,6 +30,10 @@ public class Student{
         return sId;
     }
 
+    public void setsId(Long sId) {
+        this.sId = sId;
+    }
+
     public String getsName() {
         return sName;
     }
