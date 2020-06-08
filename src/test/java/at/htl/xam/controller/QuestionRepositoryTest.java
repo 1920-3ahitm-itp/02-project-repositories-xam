@@ -68,30 +68,34 @@ class QuestionRepositoryTest {
     @Order(3000)
     @Test
     void findAll() {
-
+        //arrange
         QuestionRepository questionRepository = new QuestionRepository();
         Table table = new Table(DatasourceFactory.getDataSource(), "Question");
 
+        //act
         int findAllRows = questionRepository.findAll().size();
         int tableRows = table.getRowsList().size();
 
+        //assert
         org.assertj.core.api.Assertions.assertThat(findAllRows).isEqualTo(tableRows);
     }
 
     @Order(4000)
     @Test
     void findById() {
+        //arrange
         QuestionRepository questionRepository = new QuestionRepository();
         Table table = new Table(DatasourceFactory.getDataSource(), "Question");
+        output(table).toConsole();
 
+        //act
         Question question = questionRepository.findById(1L);
 
-        String[] expected = {String.valueOf(question.getQueId()), question.getQueHeadline(), question.getQueDesc(), question.getQueResult()};
+        //assert
+        String[] expected = {String.valueOf(question.getQueId()), question.getQueHeadline()};
         String[] actual = {
-                table.getRow(1).getValuesList().get(0).getValue().toString(),
-                table.getRow(1).getValuesList().get(1).getValue().toString(),
-                table.getRow(1).getValuesList().get(2).getValue().toString(),
-                table.getRow(1).getValuesList().get(3).getValue().toString()
+                table.getRow(0).getValuesList().get(0).getValue().toString(),
+                table.getRow(0).getValuesList().get(1).getValue().toString()
         };
 
         org.assertj.core.api.Assertions.assertThat(expected).isEqualTo(actual);
