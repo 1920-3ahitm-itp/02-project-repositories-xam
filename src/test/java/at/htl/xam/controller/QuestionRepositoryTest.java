@@ -48,7 +48,7 @@ class QuestionRepositoryTest {
         QuestionRepository questionRepository = new QuestionRepository();
         questionRepository.save(new Question(99L, "QuestionHeadline", "QuestionDescription", "QuestionResult", new Quiz(1L, "TestQuiz", "for testing purposes")));
 
-        Question question = new Question(99L, "QuestionHeadline", "QuestionDescription", "QuestionResult", new Quiz(2L, "TestQuiz2", "for testing purposes"));
+        Question question = new Question(100L, "QuestionHeadline", "QuestionDescription", "QuestionResult", new Quiz(2L, "TestQuiz2", "for testing purposes"));
         questionRepository.save(question);
 
         Table table = new Table(DatasourceFactory.getDataSource(), "Question");
