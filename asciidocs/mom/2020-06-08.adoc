@@ -9,9 +9,6 @@ ifndef::imagesdir[:imagesdir: images]
 |===
 |anwesend |Verteiler
 
-|Vorname Nachname
-|
-
 |Besic Meris
 |
 
@@ -32,22 +29,28 @@ ifndef::imagesdir[:imagesdir: images]
 |Discord
 
 |von-bis
-|15.30 - 17-15 (vorraussichtlich)
+|15.45 - 16.45
 
 |Dauer
-|100min
+|60min
 |===
 
 == Fragen im Vorhinein
-* Ausgabe des SQL-Runners nicht anzeigen?
-* Tobi = "BuildTools"?
+* [x] Ausgabe des SQL-Runners nicht anzeigen?
+* [ ] Tobi = "BuildTools"?
 
 == Besprochene Themen
 
-* Thema 1
-
-
+* DB-Veränderungen
+* Static-List in Quiz-Klasse
+* Tests
+* Frage 1 (sr.setLogWriter(null) in Projekt von 3ahif / recipe)
+* Note
 
 === Vereinbarungen und Entscheidungen
 
-==== Punkt 1
+==== to-do:
+** Assoziationstabelle
+** Präfixe in db
+** SqlRunner fixen
+** Tests fertig
