@@ -45,13 +45,12 @@ public class QuestionRepository implements Repository<Question> {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Delete question from database
-            String sql = "UPDATE Question SET question_id = ?, headline = ?, description = ?, result = ?, quiz_id = ?";
+            String sql = "UPDATE Question SET headline = ?, description = ?, result = ?, quiz_id = ? WHERE question_id = " + question.getQueId();
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setLong(1, question.getQueId());
-            pstmt.setString(2, question.getQueHeadline());
-            pstmt.setString(3, question.getQueDesc());
-            pstmt.setString(4, question.getQueResult());
-            pstmt.setLong(5, question.getQueQuiz().getQuiId());
+            pstmt.setString(1, question.getQueHeadline());
+            pstmt.setString(2, question.getQueDesc());
+            pstmt.setString(3, question.getQueResult());
+            pstmt.setLong(4, question.getQueQuiz().getQuiId());
 
             pstmt.execute();
         } catch (SQLException e) {
