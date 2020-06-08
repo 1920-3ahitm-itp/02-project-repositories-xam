@@ -1,5 +1,6 @@
 package at.htl.xam.controller;
 
+import at.htl.xam.model.Question;
 import at.htl.xam.model.Quiz;
 import at.htl.xam.model.Teacher;
 
@@ -12,9 +13,17 @@ import java.util.List;
 
 public class TeacherRepository implements Repository<Teacher>{
 
+    List<Teacher> teachers = new ArrayList<>();
+
     @Override
     public void save(Teacher teacher) {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
+
+            for (Teacher t : teachers) {
+                if (t.gettId() == teacher.gettId()) {
+                    update(teacher);
+                }
+            }
 
             // TODO: Insert teacher in database
             String sql = "INSERT INTO Teacher(name, username, password) VALUES(?, ?, ?)";
@@ -87,4 +96,25 @@ public class TeacherRepository implements Repository<Teacher>{
         }
         return null;
     }
+
+    private void update(Teacher teacher) {
+
+        try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
+
+            // TODO: Delete question from database
+            String sql = "UPDATE Teacher SET TEACHER_ID = ?, NAME = ?, USERNAME = ?, PASSWORD = ?";
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setLong(1, teacher.gettId());
+            pstmt.setString(2, teacher.gettName());
+            pstmt.setString(3, teacher.gettUsername());
+            pstmt.setString(4, teacher.gettPassword());
+
+
+            pstmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
