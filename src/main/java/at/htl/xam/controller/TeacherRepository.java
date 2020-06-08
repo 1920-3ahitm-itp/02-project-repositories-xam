@@ -47,7 +47,7 @@ public class TeacherRepository implements Repository<Teacher>{
             pstmt.setLong(1, id);
 
             pstmt.execute();
-
+            teachers.remove(Integer.parseInt(String.valueOf(id)));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -87,7 +87,6 @@ public class TeacherRepository implements Repository<Teacher>{
             preparedStatement.setLong(1, id);
 
             try (ResultSet rs = preparedStatement.executeQuery()) {
-                //Teacher(String tName, String tUsername, String tPassword)
                 return new Teacher(rs.getString("name"), rs.getString("username"), rs.getString("password"));
             }
 
@@ -108,7 +107,6 @@ public class TeacherRepository implements Repository<Teacher>{
             pstmt.setString(2, teacher.gettName());
             pstmt.setString(3, teacher.gettUsername());
             pstmt.setString(4, teacher.gettPassword());
-
 
             pstmt.execute();
         } catch (SQLException e) {
