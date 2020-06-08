@@ -1,0 +1,57 @@
+= Besprechungsprotokoll 08.06.2020
+Vorname Nachname
+1.0, yyyy-mm-dd
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Vorname Nachname
+|
+
+|Besic Meris
+|
+
+|Fitzinger Jakob
+|
+
+|Höfler Tobias
+|
+
+|Stütz Thomas
+|
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Discord
+
+|von-bis
+|15.30 - 17-15 (vorraussichtlich)
+
+|Dauer
+|100min
+|===
+
+== Fragen im Vorhinein
+* Ausgabe des SQL-Runners nicht anzeigen?
+
+
+== Besprochene Themen
+
+* Thema 1
+
+
+
+=== Vereinbarungen und Entscheidungen
+
+==== Punkt 1
+
+image:favicon.png[]
+
+==== Punkt 2
