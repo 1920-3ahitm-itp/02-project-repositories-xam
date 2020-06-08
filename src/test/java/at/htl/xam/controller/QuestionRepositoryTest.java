@@ -2,6 +2,7 @@ package at.htl.xam.controller;
 
 import at.htl.xam.database.SqlRunner;
 import at.htl.xam.model.Question;
+import at.htl.xam.model.Quiz;
 import org.assertj.db.api.Assertions;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.BeforeAll;
@@ -43,19 +44,25 @@ class QuestionRepositoryTest {
     @Order(2000)
     @Test
     void delete() {
+        //arrange
         QuestionRepository questionRepository = new QuestionRepository();
+        questionRepository.save(new Question(99L, "QuestionHeadline", "QuestionDescription", "QuestionResult", new Quiz(1L, "TestQuiz", "for testing purposes")));
 
-        questionRepository.save(new Question(99L, "QuestionHeadline", "QuestionDescription", "QuestionResult"));
-
-        Question question = new Question(99L, "QuestionHeadline", "QuestionDescription", "QuestionResult");
+        Question question = new Question(99L, "QuestionHeadline", "QuestionDescription", "QuestionResult", new Quiz(2L, "TestQuiz2", "for testing purposes"));
         questionRepository.save(question);
+
         Table table = new Table(DatasourceFactory.getDataSource(), "Question");
+        output(table).toConsole();
 
-        int rowsBefore = table.getRowsList().size();
-        questionRepository.delete(rowsBefore - 1L);
-        int rowsAfter = table.getRowsList().size();
+        //act
+        long expectedRows = table.getRowsList().size() - 1;
+        questionRepository.delete(expectedRows);
 
-        org.assertj.core.api.Assertions.assertThat(rowsBefore).isEqualTo(rowsAfter);
+        table = new Table(DatasourceFactory.getDataSource(), "Question");
+        output(table).toConsole();
+
+        //assert
+        assertThat(table).hasNumberOfRows((int) expectedRows);
     }
 
     @Order(3000)

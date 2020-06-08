@@ -12,6 +12,14 @@ public class Question {
     public Question() {
     }
 
+    public Question(Long queId, String queHeadline, String queDesc, String queResult, Quiz queQuiz) {
+        this.queId = queId;
+        this.queHeadline = queHeadline;
+        this.queDesc = queDesc;
+        this.queResult = queResult;
+        this.queQuiz = queQuiz;
+    }
+
     public Question(Long queId, String queHeadline, String queDesc, String queResult) {
         this.queId = queId;
         this.queHeadline = queHeadline;

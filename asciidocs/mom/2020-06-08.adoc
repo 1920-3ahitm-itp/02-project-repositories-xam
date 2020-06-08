@@ -40,7 +40,7 @@ ifndef::imagesdir[:imagesdir: images]
 
 == Fragen im Vorhinein
 * Ausgabe des SQL-Runners nicht anzeigen?
-
+* Tobi = "BuildTools"?
 
 == Besprochene Themen
 
@@ -51,7 +51,3 @@ ifndef::imagesdir[:imagesdir: images]
 === Vereinbarungen und Entscheidungen
 
 ==== Punkt 1
-
-image:favicon.png[]
-
-==== Punkt 2
