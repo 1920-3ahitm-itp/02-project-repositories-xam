@@ -1,26 +1,38 @@
 package at.htl.xam.controller;
 
+import at.htl.xam.database.SqlRunner;
 import at.htl.xam.model.Question;
 import at.htl.xam.model.Quiz;
 import at.htl.xam.model.Teacher;
 import org.assertj.db.api.Assertions;
 import org.assertj.db.type.Table;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class QuizRepositoryTest {
 
+    @BeforeAll
+    static void beforeAll() {
+        SqlRunner.run();
+    }
+
+    @Order(1000)
     @Test
     void save() {
+        //arrange
         QuizRepository quizRepository = new QuizRepository();
-
         Quiz quiz = new Quiz(10L, "quiName",  "quiDescription", new Teacher(1L, "teacherName", "teacherUsername", "teacherPassword"));
+        Table t = new Table(DatasourceFactory.getDataSource(), "Quiz");
+
+        //act
         quizRepository.save(quiz);
+        t = new Table(DatasourceFactory.getDataSource(), "Quiz");
 
-        Table table = new Table(DatasourceFactory.getDataSource(), "Quiz");
-
-        Assertions.assertThat(table).row(0)
+        //assert
+        Assertions.assertThat(t).row(0)
                 .value("quiName").isEqualTo("quiName")
                 .value("quiName").isEqualTo("quiName")
                 .value("quiTeacher_id").isEqualTo("teacherId");
