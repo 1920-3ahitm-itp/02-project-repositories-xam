@@ -6,6 +6,7 @@ import at.htl.xam.model.Quiz;
 import org.assertj.db.api.Assertions;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
@@ -16,8 +17,8 @@ import static org.assertj.db.output.Outputs.output;
 
 class QuestionRepositoryTest {
 
-    @BeforeAll
-    static void beforeAll() {
+    @BeforeEach
+    void beforeEach() {
         SqlRunner.run();
     }
 
