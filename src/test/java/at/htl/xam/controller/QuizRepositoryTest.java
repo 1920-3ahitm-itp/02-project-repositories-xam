@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.db.api.Assertions.assertThat;
 import static org.assertj.db.output.Outputs.output;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -36,27 +37,33 @@ class QuizRepositoryTest {
         output(t).toConsole();
 
         //assert
-        Assertions.assertThat(t).row(0)
+        assertThat(t).row(0)
                 .row(t.getRowsList().size() - 1)
                 .value("NAME").isEqualTo("quiName");
     }
 
     @Test
     void delete() {
+        //arrange
         QuizRepository quizRepository = new QuizRepository();
-
         quizRepository.save(new Quiz(99L, "quiName", "quiDescription", new Teacher(1L, "teacherName", "teacherUsername", "teacherPassword")));
 
-        Quiz quiz = new Quiz(99L, "quiName",  "quiDescription", new Teacher(1L, "teacherName", "teacherUsername", "teacherPassword"));
-        Teacher teacher = new Teacher(1L, "teacherName", "teacherUsername", "teacherPassword");
+        Quiz quiz = new Quiz(100L, "quiName",  "quiDescription", new Teacher(1L, "teacherName", "teacherUsername", "teacherPassword"));
         quizRepository.save(quiz);
+
         Table table = new Table(DatasourceFactory.getDataSource(), "Quiz");
+        output(table).toConsole();
 
-        int rowsBefore = table.getRowsList().size();
-        quizRepository.delete(rowsBefore - 1L);
-        int rowsAfter = table.getRowsList().size();
+        //act
+        long expected = table.getRowsList().size() - 1;
+        quizRepository.delete(expected);
 
-        org.assertj.core.api.Assertions.assertThat(rowsBefore).isEqualTo(rowsAfter);
+        table = new Table(DatasourceFactory.getDataSource(), "Quiz");
+        output(table).toConsole();
+
+        //assert
+        assertThat(table).hasNumberOfRows((int) expected);
+
     }
 
     @Test

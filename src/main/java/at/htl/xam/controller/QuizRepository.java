@@ -67,7 +67,7 @@ public class QuizRepository implements Repository<Quiz> {
             pstmt.setLong(1, id);
 
             pstmt.execute();
-            quizzes.remove(Integer.parseInt(String.valueOf(id)));
+            quizzes.remove(id);
         } catch (SQLException e) {
             e.printStackTrace();
         }
