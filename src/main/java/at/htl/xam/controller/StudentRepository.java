@@ -27,7 +27,7 @@ public class StudentRepository implements Repository<Student> {
 
 
             // TODO: Insert student in database
-            String sql = "INSERT INTO Student(name, username, password, class) VALUES(?, ?, ?, ?)";
+            String sql = "INSERT INTO Student(s_name, s_username, s_password, s_class) VALUES(?, ?, ?, ?)";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, student.getsName());
             pstmt.setString(2, student.getsUsername());
@@ -47,7 +47,7 @@ public class StudentRepository implements Repository<Student> {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Delete student from database
-            String sql = "UPDATE Student SET student_id = ?, name = ?, username = ?, password = ?, class = ?";
+            String sql = "UPDATE Student SET s_student_id = ?, s_name = ?, s_username = ?, s_password = ?, s_class = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setLong(1, student.getsId());
             pstmt.setString(2, student.getsName());
@@ -66,7 +66,7 @@ public class StudentRepository implements Repository<Student> {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Delete student from database
-            String sql = "DELETE FROM Student WHERE student_id = ?";
+            String sql = "DELETE FROM Student WHERE s_student_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setLong(1, id);
 
@@ -84,16 +84,16 @@ public class StudentRepository implements Repository<Student> {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Select all students from database
-            String sql = "SELECT student_id, name, username, password, class FROM Student";
+            String sql = "SELECT s_student_id, s_name, s_username, s_password, s_class FROM Student";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             ResultSet result = pstmt.executeQuery();
 
             while(result.next()){
-                long id = result.getInt("student_id");
-                String name = result.getString("name");
-                String username = result.getString("username");
-                String password = result.getString("password");
-                String classRoom = result.getString("class");
+                long id = result.getInt("s_student_id");
+                String name = result.getString("s_name");
+                String username = result.getString("s_username");
+                String password = result.getString("s_password");
+                String classRoom = result.getString("s_class");
                 students_found.add(new Student(id, name, username, password, classRoom));
             }
 
@@ -108,7 +108,7 @@ public class StudentRepository implements Repository<Student> {
     @Override
     public Student findById(Long id) {
         try (Connection conn = DatasourceFactory.getDataSource().getConnection()) {
-            String sql = "SELECT * FROM Student WHERE student_id = ?";
+            String sql = "SELECT * FROM Student WHERE s_student_id = ?";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setLong(1, id);
 
@@ -116,7 +116,7 @@ public class StudentRepository implements Repository<Student> {
                 Student s = new Student();
                 s.setsId(id);
                 rs.next();
-                String name = rs.getString("name");
+                String name = rs.getString("s_name");
                 s.setsName(name);
                 return s;
             }

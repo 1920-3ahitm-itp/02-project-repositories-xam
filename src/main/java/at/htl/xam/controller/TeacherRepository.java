@@ -26,7 +26,7 @@ public class TeacherRepository implements Repository<Teacher>{
             }
 
             // TODO: Insert teacher in database
-            String sql = "INSERT INTO Teacher(name, username, password) VALUES(?, ?, ?)";
+            String sql = "INSERT INTO Teacher(t_name, t_username, t_password) VALUES(?, ?, ?)";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, teacher.gettName());
             pstmt.setString(2, teacher.gettUsername());
@@ -42,7 +42,7 @@ public class TeacherRepository implements Repository<Teacher>{
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Delete teacher from database
-            String sql = "DELETE FROM Teacher WHERE teacher_id = ?";
+            String sql = "DELETE FROM Teacher WHERE t_teacher_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setLong(1, id);
 
@@ -60,15 +60,15 @@ public class TeacherRepository implements Repository<Teacher>{
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Select all teachers from database
-            String sql = "SELECT teacher_id, name, username, password FROM Teacher";
+            String sql = "SELECT t_teacher_id, t_name, t_username, t_password FROM Teacher";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             ResultSet result = pstmt.executeQuery();
 
             while(result.next()){
-                long id = result.getInt("teacher_id");
-                String name = result.getString("name");
-                String username = result.getString("username");
-                String password = result.getString("password");
+                long id = result.getInt("t_teacher_id");
+                String name = result.getString("t_name");
+                String username = result.getString("t_username");
+                String password = result.getString("t_password");
                 teachers.add(new Teacher(id, name, username, password));
             }
 
@@ -82,12 +82,12 @@ public class TeacherRepository implements Repository<Teacher>{
     @Override
     public Teacher findById(Long id) {
         try (Connection conn = DatasourceFactory.getDataSource().getConnection()) {
-            String sql = "SELECT * FROM quiz WHERE quiz_id = ?";
+            String sql = "SELECT * FROM quiz WHERE t_quiz_id = ?";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setLong(1, id);
 
             try (ResultSet rs = preparedStatement.executeQuery()) {
-                return new Teacher(rs.getString("name"), rs.getString("username"), rs.getString("password"));
+                return new Teacher(rs.getString("t_name"), rs.getString("t_username"), rs.getString("t_password"));
             }
 
         } catch (SQLException throwables) {
@@ -101,7 +101,7 @@ public class TeacherRepository implements Repository<Teacher>{
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Delete question from database
-            String sql = "UPDATE Teacher SET TEACHER_ID = ?, NAME = ?, USERNAME = ?, PASSWORD = ?";
+            String sql = "UPDATE Teacher SET t_TEACHER_ID = ?, t_NAME = ?, t_USERNAME = ?, t_PASSWORD = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setLong(1, teacher.gettId());
             pstmt.setString(2, teacher.gettName());

@@ -77,7 +77,7 @@
       <recent name="at.htl.xam.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.QuizRepositoryTest.findById">
+  <component name="RunManager" selected="JUnit.QuizRepositoryTest">
     <configuration name="QuestionRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xam" />
       <extension name="coverage">
@@ -91,7 +91,21 @@
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuizRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xam" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.htl.xam.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.htl.xam.controller" />
+      <option name="MAIN_CLASS_NAME" value="at.htl.xam.controller.QuizRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="QuizRepositoryTest.delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -142,29 +156,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QuizRepositoryTest.save" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="xam" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="at.htl.xam.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="at.htl.xam.controller" />
-      <option name="MAIN_CLASS_NAME" value="at.htl.xam.controller.QuizRepositoryTest" />
-      <option name="METHOD_NAME" value="save" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.QuizRepositoryTest" />
+        <item itemvalue="JUnit.QuestionRepositoryTest" />
         <item itemvalue="JUnit.QuizRepositoryTest.findById" />
         <item itemvalue="JUnit.QuizRepositoryTest.findAll" />
         <item itemvalue="JUnit.QuizRepositoryTest.delete" />
-        <item itemvalue="JUnit.QuizRepositoryTest.save" />
-        <item itemvalue="JUnit.QuestionRepositoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -187,7 +185,7 @@
       <workItem from="1591341390789" duration="270000" />
       <workItem from="1591341676261" duration="834000" />
       <workItem from="1591612699540" duration="388000" />
-      <workItem from="1591948029017" duration="2320000" />
+      <workItem from="1591948029017" duration="4101000" />
     </task>
     <task id="LOCAL-00001" summary="Repariert">
       <created>1589485379996</created>
@@ -346,34 +344,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="758" y="204" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589485015967" />
-    <state width="1493" height="202" key="GridCell.Tab.0.bottom" timestamp="1591949638947">
+    <state width="1493" height="166" key="GridCell.Tab.0.bottom" timestamp="1591951667834">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="202" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591949638947" />
+    <state width="1493" height="166" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591951667834" />
     <state width="1877" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.-111.1920.1160@0.0.1920.1040" timestamp="1590405484623" />
     <state width="1877" height="338" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/736.-1080.1920.1040@0.0.1920.1040" timestamp="1591612685027" />
     <state width="1877" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589798766362" />
     <state width="1169" height="782" key="GridCell.Tab.0.bottom/0.23.2560.1417@0.23.2560.1417" timestamp="1590419579974" />
-    <state width="1493" height="202" key="GridCell.Tab.0.center" timestamp="1591949638946">
+    <state width="1493" height="166" key="GridCell.Tab.0.center" timestamp="1591951667833">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="202" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591949638946" />
+    <state width="1493" height="166" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591951667833" />
     <state width="1877" height="266" key="GridCell.Tab.0.center/0.0.1920.1040/1920.-111.1920.1160@0.0.1920.1040" timestamp="1590405484623" />
     <state width="1877" height="338" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/736.-1080.1920.1040@0.0.1920.1040" timestamp="1591612685027" />
     <state width="1877" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589798766362" />
     <state width="1169" height="782" key="GridCell.Tab.0.center/0.23.2560.1417@0.23.2560.1417" timestamp="1590419579973" />
-    <state width="1493" height="202" key="GridCell.Tab.0.left" timestamp="1591949638946">
+    <state width="1493" height="166" key="GridCell.Tab.0.left" timestamp="1591951667833">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="202" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591949638946" />
+    <state width="1493" height="166" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591951667833" />
     <state width="1877" height="266" key="GridCell.Tab.0.left/0.0.1920.1040/1920.-111.1920.1160@0.0.1920.1040" timestamp="1590405484622" />
     <state width="1877" height="338" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/736.-1080.1920.1040@0.0.1920.1040" timestamp="1591612685027" />
     <state width="1877" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589798766362" />
     <state width="1169" height="782" key="GridCell.Tab.0.left/0.23.2560.1417@0.23.2560.1417" timestamp="1590419579973" />
-    <state width="1493" height="202" key="GridCell.Tab.0.right" timestamp="1591949638947">
+    <state width="1493" height="166" key="GridCell.Tab.0.right" timestamp="1591951667834">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="202" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591949638947" />
+    <state width="1493" height="166" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591951667834" />
     <state width="1877" height="266" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-111.1920.1160@0.0.1920.1040" timestamp="1590405484623" />
     <state width="1877" height="338" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/736.-1080.1920.1040@0.0.1920.1040" timestamp="1591612685027" />
     <state width="1877" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589798766362" />

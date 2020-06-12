@@ -25,7 +25,7 @@ public class QuestionRepository implements Repository<Question> {
 
 
             // TODO: Insert question in database
-            String sql = "INSERT INTO Question(headline, description, result, QUIZ_ID) VALUES(?, ?, ?, ?)";
+            String sql = "INSERT INTO Question(que_headline, que_description, que_result, que_quiz_id) VALUES(?, ?, ?, ?)";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, question.getQueHeadline());
             pstmt.setString(2, question.getQueDesc());
@@ -45,7 +45,7 @@ public class QuestionRepository implements Repository<Question> {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Delete question from database
-            String sql = "UPDATE Question SET headline = ?, description = ?, result = ?, quiz_id = ? WHERE question_id = " + question.getQueId();
+            String sql = "UPDATE Question SET que_headline = ?, que_description = ?, que_result = ?, que_quiz_id = ? WHERE que_question_id = " + question.getQueId();
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, question.getQueHeadline());
             pstmt.setString(2, question.getQueDesc());
@@ -63,7 +63,7 @@ public class QuestionRepository implements Repository<Question> {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Delete question from database
-            String sql = "DELETE FROM Question WHERE question_id = ?";
+            String sql = "DELETE FROM Question WHERE que_question_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setLong(1, id);
 
@@ -81,15 +81,15 @@ public class QuestionRepository implements Repository<Question> {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Select all questions from database
-            String sql = "SELECT question_id, headline, description, result FROM Question";
+            String sql = "SELECT que_question_id, que_headline, que_description, que_result FROM Question";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             ResultSet result = pstmt.executeQuery();
 
             while(result.next()){
-                long id = result.getInt("question_id");
-                String headline = result.getString("headline");
-                String description = result.getString("description");
-                String qResult = result.getString("result");
+                long id = result.getInt("que_question_id");
+                String headline = result.getString("que_headline");
+                String description = result.getString("que_description");
+                String qResult = result.getString("que_result");
                 questions_found.add(new Question(id, headline, description, qResult));
             }
 
@@ -103,7 +103,7 @@ public class QuestionRepository implements Repository<Question> {
     @Override
     public Question findById(Long id) {
         try (Connection conn = DatasourceFactory.getDataSource().getConnection()) {
-            String sql = "SELECT * FROM Question WHERE question_id = ?";
+            String sql = "SELECT * FROM Question WHERE que_question_id = ?";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setLong(1, id);
 
@@ -111,7 +111,7 @@ public class QuestionRepository implements Repository<Question> {
                 Question q = new Question();
                 q.setQueId(id);
                 rs.next();
-                String headline = rs.getString("headline");
+                String headline = rs.getString("que_headline");
                 q.setQueHeadline(headline);
                 return q;
             }

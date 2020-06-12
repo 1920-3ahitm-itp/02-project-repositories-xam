@@ -39,7 +39,7 @@ class QuestionRepositoryTest {
         //assert
         Assertions.assertThat(t).row(0)
                 .row(t.getRowsList().size() - 1)
-                .value("HEADLINE").isEqualTo("QuestionHeadline");
+                .value("QUE_HEADLINE").isEqualTo("QuestionHeadline");
     }
 
     @Order(2000)

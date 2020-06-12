@@ -25,7 +25,7 @@ public class QuizRepository implements Repository<Quiz> {
 
 
             // TODO: Insert quiz in database
-            String sql = "INSERT INTO Quiz(name, description, teacher_id) VALUES(?, ?, ?)";
+            String sql = "INSERT INTO Quiz(qui_name, qui_description, qui_teacher_id) VALUES(?, ?, ?)";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, quiz.getQuiName());
             pstmt.setString(2, quiz.getQuiDescription());
@@ -44,7 +44,7 @@ public class QuizRepository implements Repository<Quiz> {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Delete quiz from database
-            String sql = "UPDATE Quiz SET quiz_id = ?, name = ?, description = ?, teacher_id = ?";
+            String sql = "UPDATE Quiz SET qui_quiz_id = ?, qui_name = ?, qui_description = ?, qui_teacher_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setLong(1, quiz.getQuiId());
             pstmt.setString(2, quiz.getQuiName());
@@ -62,7 +62,7 @@ public class QuizRepository implements Repository<Quiz> {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Delete quiz from database
-            String sql = "DELETE FROM Quiz WHERE quiz_id = ?";
+            String sql = "DELETE FROM Quiz WHERE qui_quiz_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setLong(1, id);
 
@@ -80,14 +80,14 @@ public class QuizRepository implements Repository<Quiz> {
         try (Connection connection = DatasourceFactory.getDataSource().getConnection()) {
 
             // TODO: Select all quizzes from database
-            String sql = "SELECT quiz_id, name, description FROM Quiz";
+            String sql = "SELECT qui_quiz_id, qui_name, qui_description FROM Quiz";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             ResultSet result = pstmt.executeQuery();
 
             while(result.next()){
-                long id = result.getInt("quiz_id");
-                String name = result.getString("name");
-                String description = result.getString("description");
+                long id = result.getInt("qui_quiz_id");
+                String name = result.getString("qui_name");
+                String description = result.getString("qui_description");
                 quizzes_found.add(new Quiz(id, name, description));
             }
 
@@ -101,7 +101,7 @@ public class QuizRepository implements Repository<Quiz> {
     @Override
     public Quiz findById(Long id) {
         try (Connection conn = DatasourceFactory.getDataSource().getConnection()) {
-            String sql = "SELECT * FROM Quiz WHERE quiz_id = ?";
+            String sql = "SELECT * FROM Quiz WHERE qui_quiz_id = ?";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setLong(1, id);
 
@@ -109,7 +109,7 @@ public class QuizRepository implements Repository<Quiz> {
                 Quiz q = new Quiz();
                 q.setQuiId(id);
                 rs.next();
-                String name = rs.getString("name");
+                String name = rs.getString("qui_name");
                 q.setQuiName(name);
                 return q;
             }
