@@ -47,7 +47,7 @@ public class TeacherRepository implements Repository<Teacher>{
             pstmt.setLong(1, id);
 
             pstmt.execute();
-            teachers.remove(Integer.parseInt(String.valueOf(id)));
+            teachers.remove(id);
         } catch (SQLException e) {
             e.printStackTrace();
         }

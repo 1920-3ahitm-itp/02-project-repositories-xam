@@ -71,7 +71,7 @@ public class StudentRepository implements Repository<Student> {
             pstmt.setLong(1, id);
 
             pstmt.execute();
-            students.remove(Integer.parseInt(String.valueOf(id)));
+            students.remove(id);
         } catch (SQLException e) {
             e.printStackTrace();
         }
