@@ -7,15 +7,17 @@ import at.htl.xam.model.Teacher;
 import org.assertj.db.api.Assertions;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.db.output.Outputs.output;
 import static org.junit.jupiter.api.Assertions.*;
 
 class QuizRepositoryTest {
 
-    @BeforeAll
-    static void beforeAll() {
+    @BeforeEach
+    void beforeEach() {
         SqlRunner.run();
     }
 
@@ -26,16 +28,17 @@ class QuizRepositoryTest {
         QuizRepository quizRepository = new QuizRepository();
         Quiz quiz = new Quiz(10L, "quiName",  "quiDescription", new Teacher(1L, "teacherName", "teacherUsername", "teacherPassword"));
         Table t = new Table(DatasourceFactory.getDataSource(), "Quiz");
+        output(t).toConsole();
 
         //act
         quizRepository.save(quiz);
         t = new Table(DatasourceFactory.getDataSource(), "Quiz");
+        output(t).toConsole();
 
         //assert
         Assertions.assertThat(t).row(0)
-                .value("quiName").isEqualTo("quiName")
-                .value("quiName").isEqualTo("quiName")
-                .value("quiTeacher_id").isEqualTo("teacherId");
+                .row(t.getRowsList().size() - 1)
+                .value("NAME").isEqualTo("quiName");
     }
 
     @Test
