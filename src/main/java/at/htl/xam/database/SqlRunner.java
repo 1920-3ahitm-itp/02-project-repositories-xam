@@ -30,6 +30,7 @@ public class SqlRunner {
             Connection conn = dataSource.getConnection();
             System.out.println("Connection established......");
             ScriptRunner sr = new ScriptRunner(conn);
+            sr.setLogWriter(null);
 
             for (String file : scriptProperties.stringPropertyNames()) {
                 Reader reader = new BufferedReader(new FileReader(scriptProperties.getProperty(file)));
