@@ -68,30 +68,36 @@ class QuizRepositoryTest {
 
     @Test
     void findAll() {
+        //arrange
         QuizRepository quizRepository = new QuizRepository();
         Table table = new Table(DatasourceFactory.getDataSource(), "Quiz");
-
-        int findAllRows = quizRepository.findAll().size();
+        output(table).toConsole();
         int tableRows = table.getRowsList().size();
 
+        //act
+        int findAllRows = quizRepository.findAll().size();
+
+        //assert
         org.assertj.core.api.Assertions.assertThat(findAllRows).isEqualTo(tableRows);
     }
 
     @Test
     void findById() {
+        //arrange
         QuizRepository quizRepository = new QuizRepository();
         Table table = new Table(DatasourceFactory.getDataSource(), "Quiz");
+        output(table).toConsole();
 
+        //act
         Quiz quiz = quizRepository.findById(1L);
 
-        String[] expected = {String.valueOf(quiz.getQuiId()), quiz.getQuiName(), quiz.getQuiDescription(), String.valueOf(quiz.getQuiTeacher().gettId())};
+        String[] expected = {String.valueOf(quiz.getQuiId()), quiz.getQuiName()};
         String[] actual = {
-                table.getRow(1).getValuesList().get(0).getValue().toString(),
-                table.getRow(1).getValuesList().get(1).getValue().toString(),
-                table.getRow(1).getValuesList().get(2).getValue().toString(),
-                table.getRow(1).getValuesList().get(3).getValue().toString()
+                table.getRow(0).getValuesList().get(0).getValue().toString(),
+                table.getRow(0).getValuesList().get(1).getValue().toString()
         };
 
+        //assert
         org.assertj.core.api.Assertions.assertThat(expected).isEqualTo(actual);
     }
 

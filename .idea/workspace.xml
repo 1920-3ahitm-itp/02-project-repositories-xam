@@ -77,20 +77,7 @@
       <recent name="at.htl.xam.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.QuizRepositoryTest.delete">
-    <configuration name="SqlRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="at.htl.xam.database.SqlRunner" />
-      <module name="xam" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="at.htl.xam.database.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.QuizRepositoryTest.findById">
     <configuration name="QuestionRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xam" />
       <extension name="coverage">
@@ -107,22 +94,6 @@
         <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QuestionRepositoryTest.save" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="xam" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="at.htl.xam.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="at.htl.xam.controller" />
-      <option name="MAIN_CLASS_NAME" value="at.htl.xam.controller.QuestionRepositoryTest" />
-      <option name="METHOD_NAME" value="save" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="QuizRepositoryTest.delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xam" />
       <extension name="coverage">
@@ -134,6 +105,38 @@
       <option name="PACKAGE_NAME" value="at.htl.xam.controller" />
       <option name="MAIN_CLASS_NAME" value="at.htl.xam.controller.QuizRepositoryTest" />
       <option name="METHOD_NAME" value="delete" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuizRepositoryTest.findAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xam" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.htl.xam.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.htl.xam.controller" />
+      <option name="MAIN_CLASS_NAME" value="at.htl.xam.controller.QuizRepositoryTest" />
+      <option name="METHOD_NAME" value="findAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuizRepositoryTest.findById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xam" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.htl.xam.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.htl.xam.controller" />
+      <option name="MAIN_CLASS_NAME" value="at.htl.xam.controller.QuizRepositoryTest" />
+      <option name="METHOD_NAME" value="findById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -157,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.QuizRepositoryTest.findById" />
+        <item itemvalue="JUnit.QuizRepositoryTest.findAll" />
         <item itemvalue="JUnit.QuizRepositoryTest.delete" />
         <item itemvalue="JUnit.QuizRepositoryTest.save" />
         <item itemvalue="JUnit.QuestionRepositoryTest" />
-        <item itemvalue="JUnit.QuestionRepositoryTest.save" />
-        <item itemvalue="Application.SqlRunner" />
       </list>
     </recent_temporary>
   </component>
