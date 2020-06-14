@@ -1,8 +1,6 @@
 = Besprechungsprotokoll 08.06.2020
-Vorname Nachname
-1.0, yyyy-mm-dd
-ifndef::imagesdir[:imagesdir: images]
-:icons: font
+
+
 //:toc: left
 
 .Teilnehmer
@@ -50,6 +48,7 @@ ifndef::imagesdir[:imagesdir: images]
 === Vereinbarungen und Entscheidungen
 
 ==== to-do:
+
 ** Assoziationstabelle
 ** Präfixe in db
 ** SqlRunner fixen

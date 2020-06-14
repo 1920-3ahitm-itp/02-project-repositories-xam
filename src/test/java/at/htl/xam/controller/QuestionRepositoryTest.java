@@ -37,8 +37,7 @@ class QuestionRepositoryTest {
         output(t).toConsole();
 
         //assert
-        Assertions.assertThat(t).row(0)
-                .row(t.getRowsList().size() - 1)
+        assertThat(t).row(t.getRowsList().size() - 1)
                 .value("QUE_HEADLINE").isEqualTo("QuestionHeadline");
     }
 

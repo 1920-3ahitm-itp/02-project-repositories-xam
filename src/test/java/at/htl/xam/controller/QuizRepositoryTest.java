@@ -37,8 +37,7 @@ class QuizRepositoryTest {
         output(t).toConsole();
 
         //assert
-        assertThat(t).row(0)
-                .row(t.getRowsList().size() - 1)
+        assertThat(t).row(t.getRowsList().size() - 1)
                 .value("QUI_NAME").isEqualTo("quiName");
     }
 
